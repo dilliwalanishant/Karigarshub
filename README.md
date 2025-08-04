@@ -4,293 +4,187 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title data-key="pageTitle">KARIGAR's HUB</title>
     
-    <link rel="manifest" href='data:application/manifest+json;base64,ewogICAgIm5hbWUiOiAiS2FyaWdhcidzIEh1YiIsCiAgICAic2hvcnRfbmFtZSI6ICJLYXJpZ2FySHViIiwKICAgICJpY29ucyI6IFsKICAgICAgICB7CiAgICAgICAgICAgICJzcmMiOiAiaW1hZ2VzL2ljb24tMTkyLnBuZyIsCiAgICAgICAgICAgICJ0eXBlIjogImltYWdlL3BuZyIsCiAgICAgICAgICAgICJzaXplcyI6ICIxOTJ4MTkyIgogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgICAic3JjIjogImltYWdlcy9pY29uLTUxMi5wbmciLAogICAgICAgICAgICAidHlwZSI6ICJpbWFnZS9wbmciLAogICAgICAgICAgICAic2l6ZXMiOiAiNTEyeDUxMiIKICAgICAgICB9CiAgICBdLAogICAgInN0YXJ0X3VybCI6ICIvIiwKICAgICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICAgInRoZW1lX2NvbG9yIjogIiNGRkZGRkYiLAogICAgImJhY2tncm91bmRfY29sb3IiOiAiI0Y4RjlGQSINCn0='>
-    <meta name="theme-color" content="#FFFFFF">
+    <link rel="manifest" href='data:application/manifest+json;base64,ewogICAgIm5hbWUiOiAiS2FyaWdhcidzIEh1YiIsCiAgICAic2hvcnRfbmFtZSI6ICJLYXJpZ2FySHViIiwKICAgICJpY29ucyI6IFsKICAgICAgICB7CiAgICAgICAgICAgICJzcmMiOiAiaW1hZ2VzL2ljb24tMTkyLnBuZyIsCiAgICAgICAgICAgICJ0eXBlIjogImltYWdlL3BuZyIsCiAgICAgICAgICAgICJzaXplcyI6ICIxOTJ4MTkyIgogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgICAic3JjIjogImltYWdlcy9pY29uLTUxMi5wbmciLAogICAgICAgICAgICAidHlwZSI6ICJpbWFnZS9wbmciLAogICAgICAgICAgICAic2l6ZXMiOiAiNTEyeDUxMiIKICAgICAgICB9CiAgICBdLAogICAgInN0YXJ0X3VybCI6ICIvIiwKICAgICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICAgInRoZW1lX2NvbG9yIjogIiMxRDFDM0IiLAogICAgImJhY2tncm91bmRfY29sb3IiOiAiI0M1RENBMiIKfQ=='>
+    <meta name="theme-color" content="#1D1C3B">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --primary-accent: #17A2B8; /* A professional, muted teal */
-            --primary-accent-dark: #138496;
-            --text-dark: #343A40;       /* Dark charcoal for text */
-            --text-light: #FFFFFF;
-            --background-light: #F8F9FA; /* Off-white for the page background */
-            --background-card: #FFFFFF; /* White for cards/sections */
-            --border-color: #DEE2E6;     /* Light grey for borders */
+            --primary-dark: #1D1C3B;
+            --primary-light: #FFFFFF;
+            --accent-green: #4DB6AC;
+            --accent-blue: #87CED9;
+            --background-light: #C5DCA2;
+            --background-section: #ffffff80;
         }
-
-        /* --- KEYFRAME ANIMATIONS --- */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         html { scroll-behavior: smooth; }
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Georgia', serif;
             margin: 0; padding: 0;
             background-color: var(--background-light);
-            color: var(--text-dark);
+            color: var(--primary-dark);
         }
-
-        /* --- HEADER & LOGO --- */
         header {
-            background-color: var(--background-card);
-            color: var(--text-dark);
-            padding: 1.5em 2.5em; display: flex; align-items: center; flex-wrap: wrap;
-            border-bottom: 1px solid var(--border-color);
+            background-color: var(--primary-dark); color: var(--primary-light);
+            padding: 1em 2em; display: flex; align-items: center; flex-wrap: wrap;
         }
         .logo {
-            width: 90px; height: 90px; margin-right: 20px;
-            border-radius: 50%; border: 3px solid var(--primary-accent);
-            padding: 4px; background-color: white;
-            transition: transform 0.3s ease;
-        }
-        .logo:hover {
-            transform: scale(1.05);
+            width: 120px; height: auto; margin-right: 20px;
+            border-radius: 50%; border: 2px solid var(--accent-blue);
         }
         .header-text { flex-grow: 1; }
-        h1, h2, h3 { margin: 0; font-weight: 600; }
-        h1 { color: var(--primary-accent); font-weight: 700; }
-        p { margin-top: 5px; line-height: 1.7; color: #6C757D; }
-        
-        /* --- NAVIGATION --- */
+        h1, h2, h3 { margin: 0; }
+        p { margin-top: 5px; line-height: 1.6; }
         nav {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(8px);
-            padding: 0.8em 1em;
+            background-color: var(--accent-green); padding: 0.8em 1em;
             text-align: center; position: sticky; top: 0;
             z-index: 900; display: flex; justify-content: center;
             align-items: center; flex-wrap: wrap;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
         nav a {
-            text-decoration: none; color: var(--text-dark);
-            padding: 0.6em 1.2em; background: transparent;
-            border: 1px solid transparent;
-            border-radius: 8px; margin: 0.4em;
-            font-weight: 500; transition: all 0.3s ease;
+            text-decoration: none; color: var(--primary-dark);
+            padding: 0.5em 1em; background-color: var(--accent-blue);
+            border-radius: 5px; margin: 0.3em; display: inline-block;
+            font-weight: bold; transition: background-color 0.3s, transform 0.2s;
         }
-        nav a:hover {
-            background-color: var(--primary-accent);
-            color: var(--text-light);
+        nav a:hover, nav a.active {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
         }
-        nav a.active {
-             background-color: var(--primary-accent);
-             color: var(--text-light);
-             font-weight: 600;
-        }
-        
-        /* --- MAIN CONTENT & SECTIONS --- */
         .container { max-width: 1200px; margin: 0 auto; padding: 2em; }
         .feature-section {
-            background-color: transparent;
-            margin-bottom: 3em;
-            padding: 0; /* No padding on the container */
-            border: none;
-            /* Animation class */
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .feature-section.visible {
-            opacity: 1;
-            transform: translateY(0);
+            display: flex; flex-wrap: wrap; justify-content: space-around;
+            margin-bottom: 2.5em; background-color: var(--background-section);
+            padding: 2em; border-radius: 15px; border: 1px solid var(--accent-green);
         }
         .section-title {
-            width: 100%; text-align: center; font-size: 2.5em;
-            margin-bottom: 1.2em; color: var(--text-dark);
-            font-weight: 700;
-        }
-
-        /* --- FEATURE CARDS --- */
-        .feature-wrapper {
-             display: flex; flex-wrap: wrap; justify-content: center; gap: 2em;
+            width: 100%; text-align: center; font-size: 2.2em;
+            margin-bottom: 1em; color: var(--primary-dark);
         }
         .feature {
-            flex: 1 1 400px; /* Base size */
-            max-width: 480px; /* Max size to prevent becoming too wide */
-            margin: 0; /* Removed margin, using gap instead */
-            padding: 2.5em;
-            background-color: var(--background-card);
-            border: 1px solid var(--border-color);
-            color: var(--text-dark);
-            border-radius: 12px; text-align: center; display: flex;
+            flex: 1 1 45%; margin: 1em; padding: 1.5em;
+            background-color: var(--accent-green); color: var(--primary-light);
+            border-radius: 8px; text-align: center; display: flex;
             flex-direction: column; justify-content: space-between;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-        .feature:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-        }
-        .feature h3 { color: var(--text-dark); margin-bottom: 0.5em; font-weight: 600; }
-        .feature p { color: #6C757D; }
-        .feature .icon {
-            font-size: 3em; color: var(--primary-accent); margin-bottom: 0.7em;
-            transition: transform 0.3s ease;
-        }
-        .feature:hover .icon {
-            transform: scale(1.1);
-        }
-        
-        /* --- BUTTONS & FORMS --- */
+        .feature h3 { color: var(--primary-light); margin-bottom: 0.5em; }
+        .feature p { color: var(--primary-dark); }
+        .feature .icon { font-size: 3em; color: var(--accent-blue); margin-bottom: 0.5em; }
         .btn {
-            display: inline-block; padding: 0.8em 1.8em;
-            background-color: var(--primary-accent);
-            color: var(--text-light);
-            text-decoration: none; border-radius: 8px; margin-top: 1.5em;
-            cursor: pointer; font-weight: 500; border: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(23, 162, 184, 0.2);
+            display: inline-block; padding: 0.8em 1.5em;
+            background-color: var(--accent-blue); color: var(--primary-dark);
+            text-decoration: none; border-radius: 5px; margin-top: 1em;
+            cursor: pointer; font-weight: bold; border: 2px solid var(--primary-dark);
+            transition: background-color 0.3s, color 0.3s;
         }
-        .btn:hover {
-            background-color: var(--primary-accent-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(23, 162, 184, 0.3);
-        }
-        .recommender-form input, .recommender-form select, #register form input, #register form textarea {
-            width: 100%; padding: 12px; margin: 8px 0 16px 0;
-            border-radius: 8px; border: 1px solid var(--border-color);
-            background-color: var(--background-light);
-            color: var(--text-dark); font-family: 'Poppins', sans-serif;
-            transition: border-color 0.3s ease;
-        }
-        .recommender-form input:focus, .recommender-form select:focus {
-            outline: none;
-            border-color: var(--primary-accent);
-        }
-        
-        /* --- FOOTER --- */
+        .btn:hover { background-color: var(--primary-dark); color: var(--primary-light); }
         footer {
-            background-color: var(--text-dark);
-            color: var(--background-light); text-align: center; padding: 2.5em; font-size: 0.9em;
+            background-color: var(--primary-dark); color: var(--primary-light);
+            text-align: center; padding: 2em; font-size: 0.9em;
         }
-        footer p { color: #adb5bd; margin-top: 0.5em; }
+        footer p { margin-top: 0.5em; }
 
-        /* --- MODAL (CONTENT TAB) STYLES --- */
+        /* MODAL (CONTENT TAB) STYLES */
         .content-tab {
             display: none; position: fixed; z-index: 1000;
             left: 0; top: 0; width: 100%; height: 100%;
-            overflow: auto; background-color: rgba(33, 37, 41, 0.7);
-            backdrop-filter: blur(5px);
-            padding: 50px 15px;
+            overflow: auto; background-color: rgba(29, 28, 59, 0.9);
+            padding-top: 50px;
         }
         .tab-inner-content {
-            background-color: var(--background-card);
-            color: var(--text-dark);
-            margin: 5% auto; padding: 40px; border: 1px solid var(--border-color);
-            width: 90%; max-width: 900px; border-radius: 12px; position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background-color: var(--background-light); color: var(--primary-dark);
+            margin: 5% auto; padding: 40px; border: 2px solid var(--accent-blue);
+            width: 85%; max-width: 900px; border-radius: 10px; position: relative;
         }
         .close-btn {
-            color: #6C757D; position: absolute; top: 15px; right: 25px;
+            color: var(--primary-dark); position: absolute; top: 10px; right: 25px;
             font-size: 35px; font-weight: bold; cursor: pointer;
-            transition: color 0.3s, transform 0.3s;
         }
-        .close-btn:hover, .close-btn:focus { color: var(--text-dark); transform: rotate(90deg); }
+        .close-btn:hover, .close-btn:focus { color: var(--accent-green); }
         .video-container {
             position: relative; padding-bottom: 56.25%; height: 0;
             overflow: hidden; max-width: 100%; background: #000;
-            margin: 1em 0; border-radius: 10px;
+            margin: 1em 0; border-radius: 8px;
         }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-        .info-item { border-bottom: 1px solid var(--border-color); padding: 1.5em 0; margin-bottom: 1em; }
+        .info-item { border-bottom: 2px solid var(--accent-blue); padding: 1em 0; margin-bottom: 1em; }
         .info-item:last-child { border-bottom: none; }
-        .info-item h3 { color: var(--primary-accent); }
-        .info-item ul li a { color: var(--primary-accent); }
+        .info-item h3 { color: var(--primary-dark); }
         
-        /* --- LANGUAGE TOGGLE SWITCH --- */
-        .lang-switch { display: flex; align-items: center; margin-left: auto; }
-        .lang-switch label { margin: 0 8px; font-weight: 500; color: var(--text-dark); }
-        .switch { position: relative; display: inline-block; width: 50px; height: 26px; }
+        /* LANGUAGE TOGGLE SWITCH */
+        .lang-switch { display: flex; align-items: center; margin-left: 20px; }
+        .lang-switch label { margin: 0 5px; font-weight: bold; color: var(--primary-dark); }
+        .switch { position: relative; display: inline-block; width: 50px; height: 24px; }
         .switch input { opacity: 0; width: 0; height: 0; }
-        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 26px; }
-        .slider:before { position: absolute; content: ""; height: 20px; width: 20px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
-        input:checked + .slider { background-color: var(--primary-accent); }
-        input:checked + .slider:before { transform: translateX(24px); }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--accent-blue); transition: .4s; border-radius: 24px; }
+        .slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: var(--primary-dark); }
+        input:checked + .slider:before { transform: translateX(26px); }
 
-        /* --- VOICE ASSISTANT & CHATBOT --- */
+        /* VOICE ASSISTANT POPUP */
         #voice-popup {
             display: none; flex-direction: column; justify-content: center; align-items: center;
             position: fixed; z-index: 2000; left: 0; top: 0;
-            width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
+            width: 100%; height: 100%; background-color: rgba(29, 28, 59, 0.95);
         }
-        #voice-popup-icon { font-size: 5em; margin-bottom: 20px; color: var(--primary-accent); }
-        #voice-popup-text { font-size: 1.8em; font-weight: 600; }
-        @keyframes pulse-light {
-             0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); }
+        #voice-popup-content { text-align: center; color: white; }
+        #voice-popup-icon { font-size: 5em; margin-bottom: 20px; color: var(--accent-green); }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
-        #voice-popup-icon.listening { animation: pulse-light 1.5s infinite; }
-        
+        #voice-popup-icon.listening { animation: pulse 1.5s infinite; }
+        #voice-popup-text { font-size: 1.8em; font-weight: bold; }
+
+        /* CHATBOT STYLES */
         #chatbot-container {
             display: none; position: fixed; bottom: 100px; right: 25px;
-            width: 350px; height: 500px; background: var(--background-card);
-            border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            width: 350px; height: 500px; background: white;
+            border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
             z-index: 998; flex-direction: column; overflow: hidden;
-            border: 1px solid var(--border-color);
         }
         #chatbot-header {
-            background: var(--primary-accent); color: white; padding: 15px;
-            font-weight: 600; font-size: 1.2em; display: flex;
+            background: var(--primary-dark); color: white; padding: 15px;
+            font-weight: bold; font-size: 1.2em; display: flex;
             justify-content: space-between; align-items: center;
         }
         #close-chatbot-btn { cursor: pointer; font-size: 1.2em; }
         #chatbot-messages { flex-grow: 1; padding: 15px; overflow-y: auto; background: var(--background-light); }
-        .bot-message, .user-message { padding: 10px 15px; border-radius: 18px; margin-bottom: 10px; max-width: 85%; line-height: 1.5; }
-        .bot-message { background: #E9ECEF; color: var(--text-dark); align-self: flex-start; }
-        .user-message { background: var(--primary-accent); color: var(--text-light); align-self: flex-end; margin-left: auto; }
-        #chatbot-faq-options { padding: 10px; border-top: 1px solid var(--border-color); background: var(--background-card); }
-        .faq-btn {
-            width: 100%; background: #E9ECEF; color: var(--text-dark);
-            border: none; padding: 12px; border-radius: 8px; margin-bottom: 8px;
-            text-align: left; cursor: pointer; font-family: 'Poppins', sans-serif; font-weight: 500;
-            transition: background-color 0.3s ease;
+        .bot-message, .user-message {
+            padding: 10px 15px; border-radius: 18px; margin-bottom: 10px;
+            max-width: 80%; line-height: 1.4;
         }
-        .faq-btn:hover { background: #DEE2E6; }
-        
+        .bot-message { background: var(--accent-green); color: var(--primary-dark); align-self: flex-start; }
+        .user-message { background: var(--accent-blue); color: var(--primary-dark); align-self: flex-end; margin-left: auto; }
+        #chatbot-faq-options { padding: 10px; border-top: 1px solid #ddd; }
+        .faq-btn {
+            width: 100%; background: var(--accent-blue); color: var(--primary-dark);
+            border: none; padding: 10px; border-radius: 8px; margin-bottom: 8px;
+            text-align: left; cursor: pointer; font-family: 'Georgia', serif; font-weight: bold;
+        }
+        .faq-btn:hover { background: var(--accent-green); }
+
+        /* FLOATING SUPPORT BUTTON */
         .floating-support-hub { position: fixed; bottom: 25px; right: 25px; z-index: 950; }
         .floating-btn {
-            width: 60px; height: 60px; background-color: var(--primary-accent);
-            color: var(--text-light); border-radius: 50%; display: flex;
+            width: 60px; height: 60px; background-color: var(--primary-dark);
+            color: var(--primary-light); border-radius: 50%; display: flex;
             justify-content: center; align-items: center; font-size: 1.8em;
-            cursor: pointer; box-shadow: 0 4px 15px rgba(23, 162, 184, 0.4);
-            transition: all 0.3s ease;
+            cursor: pointer; box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
         }
-        .floating-btn:hover { transform: scale(1.1) rotate(15deg); box-shadow: 0 6px 20px rgba(23, 162, 184, 0.5); }
+        .floating-btn:hover { transform: scale(1.1); }
 
-        /* --- MISC & RESPONSIVE --- */
-        #sell .feature img {
-            border: 1px solid var(--border-color);
-            padding: 5px; background: white;
-        }
-        #about .feature {
-            background: transparent; border: none; box-shadow: none;
-        }
-        #about .feature:hover {
-            transform: none; box-shadow: none;
-        }
+        /* Responsive Design */
         @media screen and (max-width: 768px) {
             header { flex-direction: column; text-align: center; }
-            .logo { margin: 0 auto 15px auto; }
-            nav a { width: 80%; margin: 0.5em auto; text-align: center; }
-            .lang-switch { margin: 10px auto 0 auto; }
-            .feature-wrapper { flex-direction: column; gap: 1.5em; }
-            .feature { flex-basis: auto; } /* Let it grow naturally */
+            .logo { margin: 0 auto 10px auto; }
+            nav a { display: block; width: 80%; margin: 0.5em auto; }
             #chatbot-container { width: 90%; height: 70%; bottom: 90px; right: 5%; }
         }
-
     </style>
 </head>
 <body>
@@ -326,37 +220,35 @@
     <div class="container">
         
         <section id="about" class="feature-section">
-             <div class="feature">
-                <h2 data-key="missionTitle" class="section-title"></h2>
-                <p data-key="missionText" style="max-width: 800px; margin: 0 auto 1.5em auto; font-size: 1.1em;"></p>
-                <img src="images/KH pic 1.jpg" style="width: 100%; max-width: 600px; border-radius: 12px; margin: 1em auto; box-shadow: 0 8px 24px rgba(0,0,0,0.1);" alt="Weaver at a loom">
+            <div class="feature" style="flex: 1 1 100%; text-align:center;">
+                <h2 data-key="missionTitle"><i class="fas fa-bullseye"></i> </h2>
+                <p data-key="missionText"></p>
+                <img src="images/KH pic 1.jpg" style="width: 80%; max-width: 500px; border-radius: 10px; margin: 1em auto;" alt="Weaver at a loom">
             </div>
         </section>
 
         <section id="learn" class="feature-section">
             <h2 class="section-title" data-key="learnTitle"></h2>
-            <div class="feature-wrapper">
-                <div class="feature">
-                    <i class="fas fa-video icon"></i>
-                    <h3 data-key="tutorialsTitle"></h3>
-                    <p data-key="tutorialsText"></p>
-                    <a class="btn" data-target="tab-tutorials"><i class="fas fa-play-circle"></i> <span data-key="watchVideosBtn"></span></a>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-chart-line icon"></i>
-                    <h3 data-key="careerTitle"></h3>
-                    <p data-key="careerText"></p>
-                    <a class="btn" data-target="tab-career"><i class="fas fa-lightbulb"></i> <span data-key="learnMoreBtn"></span></a>
-                </div>
+            <div class="feature">
+                <i class="fas fa-video icon"></i>
+                <h3 data-key="tutorialsTitle"></h3>
+                <p data-key="tutorialsText"></p>
+                <a class="btn" data-target="tab-tutorials"><i class="fas fa-play-circle"></i> <span data-key="watchVideosBtn"></span></a>
+            </div>
+            <div class="feature">
+                <i class="fas fa-chart-line icon"></i>
+                <h3 data-key="careerTitle"></h3>
+                <p data-key="careerText"></p>
+                <a class="btn" data-target="tab-career"><i class="fas fa-lightbulb"></i> <span data-key="learnMoreBtn"></span></a>
             </div>
         </section>
 
         <section id="schemes" class="feature-section">
             <h2 class="section-title" data-key="aiFinderTitle"></h2>
-            <div class="feature" style="flex: 1 1 100%; max-width: 800px; margin: 0 auto;">
+            <div class="feature" style="flex: 1 1 100%; background-color: var(--primary-light); color: var(--primary-dark);">
                 <h3 data-key="findSchemeTitle"></h3>
                 <p data-key="findSchemeText"></p>
-                <div class="recommender-form" style="text-align: left;">
+                <div class="recommender-form">
                     <label for="age" data-key="ageLabel"></label>
                     <input type="number" id="age" name="age" data-key="agePlaceholder">
                     <label for="need" data-key="needLabel"></label>
@@ -369,8 +261,8 @@
                     </select>
                     <button id="findSchemeBtn" class="btn" style="width: 100%; margin-top: 15px;"><i class="fas fa-magic"></i> <span data-key="findSchemesBtn"></span></button>
                 </div>
-                <div id="scheme-results" style="margin-top: 20px; padding: 15px; border-radius: 8px; background-color: #e9ecef; display: none;"></div>
-                <hr style="margin: 2em 0; border-color: var(--border-color);">
+                <div id="scheme-results" style="margin-top: 20px; padding: 15px; border-radius: 8px; background-color: #e8f5e9; display: none;"></div>
+                <hr style="margin: 1.5em 0;">
                 <a class="btn" data-target="tab-schemes"><i class="fas fa-list-ul"></i> <span data-key="viewAllGovtSchemes"></span></a>
                 <a class="btn" data-target="tab-loans" style="margin-left: 10px;"><i class="fas fa-university"></i> <span data-key="viewBankLoans"></span></a>
             </div>
@@ -378,70 +270,64 @@
 
         <section id="sell" class="feature-section">
             <h2 class="section-title" data-key="onlineShopTitle"></h2>
-            <div class="feature-wrapper">
-                <div class="feature">
-                    <i class="fas fa-store-alt icon"></i>
-                    <h3 data-key="microStorefrontsTitle"></h3>
-                    <p data-key="microStorefrontsText"></p>
-                    <a href="#register" class="btn"><i class="fas fa-user-plus"></i> <span data-key="createShopBtn"></span></a>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-qrcode icon"></i>
-                    <h3 data-key="upiPaymentsTitle"></h3>
-                    <p data-key="upiPaymentsText"></p>
-                    <img src="https://i.ibb.co/9vGo2j3/qr-code-generic.png" alt="Sample QR Code" style="width: 150px; margin: 1em auto; border-radius: 8px;">
-                </div>
+            <div class="feature" style="flex: 1 1 55%;">
+                <i class="fas fa-store-alt icon"></i>
+                <h3 data-key="microStorefrontsTitle"></h3>
+                <p data-key="microStorefrontsText"></p>
+                <a href="#register" class="btn"><i class="fas fa-user-plus"></i> <span data-key="createShopBtn"></span></a>
+            </div>
+            <div class="feature" style="flex: 1 1 35%;">
+                <i class="fas fa-qrcode icon"></i>
+                <h3 data-key="upiPaymentsTitle"></h3>
+                <p data-key="upiPaymentsText"></p>
+                <img src="https://i.ibb.co/9vGo2j3/qr-code-generic.png" alt="Sample QR Code" style="width: 150px; margin: 1em auto; border-radius: 8px;">
             </div>
         </section>
         
         <section id="education" class="feature-section">
             <h2 class="section-title" data-key="childrensFutureTitle"></h2>
-            <div class="feature-wrapper">
-                <div class="feature">
-                    <i class="fas fa-graduation-cap icon"></i>
-                    <h3 data-key="scholarshipsTitle"></h3>
-                    <p data-key="scholarshipsText"></p>
-                    <a class="btn" data-target="tab-education"><i class="fas fa-search-dollar"></i> <span data-key="findScholarshipsBtn"></span></a>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-compass-drafting icon"></i>
-                    <h3 data-key="careerPathwaysTitle"></h3>
-                    <p data-key="careerPathwaysText"></p>
-                    <a class="btn" data-target="tab-education"><i class="fas fa-road"></i> <span data-key="exploreCareersBtn"></span></a>
-                </div>
+            <div class="feature">
+                <i class="fas fa-graduation-cap icon"></i>
+                <h3 data-key="scholarshipsTitle"></h3>
+                <p data-key="scholarshipsText"></p>
+                <a class="btn" data-target="tab-education"><i class="fas fa-search-dollar"></i> <span data-key="findScholarshipsBtn"></span></a>
+            </div>
+            <div class="feature">
+                <i class="fas fa-compass-drafting icon"></i>
+                <h3 data-key="careerPathwaysTitle"></h3>
+                <p data-key="careerPathwaysText"></p>
+                <a class="btn" data-target="tab-education"><i class="fas fa-road"></i> <span data-key="exploreCareersBtn"></span></a>
             </div>
         </section>
         
         <section id="support" class="feature-section">
             <h2 class="section-title" data-key="partnersTitle"></h2>
-             <div class="feature-wrapper">
-                <div class="feature">
-                    <i class="fas fa-calendar-alt icon"></i>
-                    <h3 data-key="eventsTitle"></h3>
-                    <p data-key="eventsText"></p>
-                    <a class="btn" data-target="tab-events"><i class="fas fa-list"></i> <span data-key="viewEventsBtn"></span></a>
-                </div>
-                 <div class="feature">
-                    <i class="fas fa-hands-helping icon"></i>
-                    <h3 data-key="ngoTitle"></h3>
-                    <p data-key="ngoText"></p>
-                    <a class="btn" data-target="tab-partners"><i class="fas fa-link"></i> <span data-key="connectNgoBtn"></span></a>
-                </div>
+            <div class="feature">
+                <i class="fas fa-calendar-alt icon"></i>
+                <h3 data-key="eventsTitle"></h3>
+                <p data-key="eventsText"></p>
+                <a class="btn" data-target="tab-events"><i class="fas fa-list"></i> <span data-key="viewEventsBtn"></span></a>
+            </div>
+             <div class="feature">
+                <i class="fas fa-hands-helping icon"></i>
+                <h3 data-key="ngoTitle"></h3>
+                <p data-key="ngoText"></p>
+                <a class="btn" data-target="tab-partners"><i class="fas fa-link"></i> <span data-key="connectNgoBtn"></span></a>
             </div>
         </section>
         
         <section id="register" class="feature-section">
             <h2 class="section-title" data-key="joinHubTitle"></h2>
-            <div class="feature" style="flex: 1 1 100%; max-width: 600px; margin: 0 auto;">
-                <form style="text-align: left; margin: auto;">
+            <div class="feature" style="flex: 1 1 100%; background: var(--primary-light); color: var(--primary-dark);">
+                <form style="text-align: left; max-width: 500px; margin: auto;">
                     <label for="name" data-key="regName"></label>
-                    <input type="text" id="name" name="name" required><br>
+                    <input type="text" id="name" name="name" required style="width: 100%; padding: 8px; margin: 6px 0; border-radius: 4px; border: 1px solid #ccc;"><br>
                     <label for="contact" data-key="regPhone"></label>
-                    <input type="tel" id="contact" name="contact" required><br>
+                    <input type="tel" id="contact" name="contact" required style="width: 100%; padding: 8px; margin: 6px 0; border-radius: 4px; border: 1px solid #ccc;"><br>
                     <label for="location" data-key="regAddress"></label>
-                    <input type="text" id="location" name="location" value="Taraboi"><br>
+                    <input type="text" id="location" name="location" value="Taraboi" style="width: 100%; padding: 8px; margin: 6px 0; border-radius: 4px; border: 1px solid #ccc;"><br>
                     <label for="craft" data-key="regWeavingType"></label>
-                    <input type="text" id="craft" name="craft" data-key="regWeavingPlaceholder"><br>
+                    <input type="text" id="craft" name="craft" data-key="regWeavingPlaceholder" style="width: 100%; padding: 8px; margin: 6px 0; border-radius: 4px; border: 1px solid #ccc;"><br>
                     <input type="submit" data-key="regSubmitBtn" class="btn" style="width: 100%; font-size: 1.2em; margin-top: 10px;">
                 </form>
             </div>
@@ -455,7 +341,7 @@
 
     <div id="tab-tutorials" class="content-tab">
         <div class="tab-inner-content">
-            <span class="close-btn">×</span>
+            <span class="close-btn">&times;</span>
             <h2 data-key="tutorialsTitle"></h2>
             <div class="info-item">
                 <h3 data-key="tutorialUpiTitle"></h3>
@@ -476,7 +362,7 @@
     
     <div id="tab-career" class="content-tab">
         <div class="tab-inner-content">
-            <span class="close-btn">×</span>
+            <span class="close-btn">&times;</span>
             <h2 data-key="careerTitle"></h2>
             <div class="info-item">
                 <h3 data-key="careerDesignsTitle"></h3>
@@ -491,14 +377,14 @@
 
     <div id="tab-schemes" class="content-tab">
         <div class="tab-inner-content">
-            <span class="close-btn">×</span>
+            <span class="close-btn">&times;</span>
             <h2 data-key="govtSchemesTitle"></h2>
             </div>
     </div>
     
     <div id="tab-education" class="content-tab">
         <div class="tab-inner-content">
-            <span class="close-btn">×</span>
+            <span class="close-btn">&times;</span>
             <h2 data-key="childrensFutureTitle"></h2>
              <div class="info-item">
                 <h3 data-key="eduScholarshipsTitle"></h3>
@@ -525,7 +411,7 @@
     <div id="chatbot-container">
         <div id="chatbot-header">
             <span data-key="chatHeader"></span>
-            <span id="close-chatbot-btn">×</span>
+            <span id="close-chatbot-btn">&times;</span>
         </div>
         <div id="chatbot-messages">
             </div>
@@ -541,26 +427,7 @@
     </div>
     
     <script>
-    // --- ANIMATION SCRIPT ---
-    document.addEventListener('DOMContentLoaded', function () {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-
-        const sections = document.querySelectorAll('.feature-section');
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-    });
-
-
-    // --- BILINGUAL & DYNAMIC CONTENT SCRIPT (Unchanged) ---
+    // --- BILINGUAL & DYNAMIC CONTENT SCRIPT ---
     const languageData = {
         en: {
             pageTitle: "KARIGAR's HUB",
@@ -661,26 +528,31 @@
             const key = el.dataset.key;
             const textData = languageData[lang][key];
             if (textData) {
+                // For elements where text is the main content
                 if (['P', 'H1', 'H2', 'H3', 'SPAN', 'A', 'LABEL', 'OPTION', 'STRONG'].includes(el.tagName)) {
-                   const icon = el.querySelector('i');
+                     // Preserve icons in nav links
+                    const icon = el.querySelector('i');
                     if (icon) {
                         el.innerHTML = icon.outerHTML + ' ' + textData;
                     } else {
                         el.innerHTML = textData;
                     }
                 } 
+                // For form inputs
                 else if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
                     if (el.type === 'submit' || el.type === 'button') {
                         el.value = textData;
-                    } else if (key.includes('Placeholder')) {
-                         el.placeholder = textData;
+                    } else {
+                        el.placeholder = textData;
                     }
                 }
+                // For page title
                  else if (el.tagName === 'TITLE') {
                     el.textContent = textData;
                 }
             }
         });
+         // Update form select options that dont have children
         document.querySelector('[data-key="selectOption"]').textContent = languageData[lang].selectOption;
         document.querySelector('[data-key="needLoan"]').textContent = languageData[lang].needLoan;
         document.querySelector('[data-key="needTraining"]').textContent = languageData[lang].needTraining;
@@ -756,12 +628,12 @@
                         addMessage(languageData[currentLanguage][faq.answerKey], 'bot');
                         if (faq.key === 'chatFaq4') {
                            const contactDiv = document.createElement('div');
-                            contactDiv.className = 'bot-message';
-                            contactDiv.innerHTML = `
+                           contactDiv.className = 'bot-message';
+                           contactDiv.innerHTML = `
                              <a href="tel:+91XXXXXXXXXX" class="btn" style="margin-right: 5px;">${languageData[currentLanguage].chatContactCall}</a>
                              <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="btn">${languageData[currentLanguage].chatContactWhatsapp}</a>`;
-                            chatbotMessages.appendChild(contactDiv);
-                            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+                           chatbotMessages.appendChild(contactDiv);
+                           chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
                         }
                     }, 500);
                 };
