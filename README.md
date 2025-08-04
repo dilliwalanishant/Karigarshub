@@ -1,12 +1,4 @@
-Of course\! I can modify the HTML to create separate content divs that appear when you click the buttons, functioning like tabs or modals. The original styling and layout will be preserved, and you'll have dedicated sections to add your information.
 
-I have implemented this using HTML, CSS, and JavaScript. The key changes are:
-
-1.  *HTML:* Each button (<a> tag with class btn) now has a data-target attribute that links it to a specific content div. I've added these new content `div`s (with the class content-tab) at the end of the body. Each tab has a "close" button.
-2.  *CSS:* I've added styles for the .content-tab to make it appear as an overlay, and styles for the close button. These new styles do not interfere with your existing design.
-3.  *JavaScript:* A script is added to handle the logic of showing and hiding the correct content tab when a button is clicked, as well as closing it.
-
-Here is the updated code:
 
 html
 <!DOCTYPE html>
