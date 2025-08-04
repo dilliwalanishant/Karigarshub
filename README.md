@@ -1,428 +1,450 @@
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KARIGAR's HUB</title>
-  <style>
-    body {
-      font-family: 'Georgia', serif;
-      margin: 0;
-      padding: 0;
-      background-color: #C5DCA2;
-      color: #1D1C3B;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KARIGAR's HUB</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #C5DCA2;
+            color: #1D1C3B;
+        }
+        header {
+            background-color: #1D1C3B;
+            color: #FFFFFF;
+            padding: 1em 2em;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap; /* Allows wrapping on small screens */
+        }
+        .logo {
+            width: 120px; /* Slightly smaller for better balance */
+            height: auto;
+            margin-right: 20px; /* Reduced margin */
+        }
+        .header-text {
+            flex-grow: 1;
+        }
+        h1 {
+            margin: 0;
+        }
+        p {
+            margin-top: 5px;
+        }
+        nav {
+            background-color: #4DB6AC;
+            padding: 1em;
+            text-align: center;
+            position: sticky; /* Makes nav bar stick to the top when scrolling */
+            top: 0;
+            z-index: 900;
+        }
+        nav a {
+            text-decoration: none;
+            color: #1D1C3B;
+            padding: 0.5em 1em;
+            background-color: #87CED9;
+            border-radius: 5px;
+            margin: 0.3em;
+            display: inline-block;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #FFFFFF;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2em;
+        }
+        .feature-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-bottom: 2em;
+            background-color: #ffffff50; /* Light background for sections */
+            padding: 1.5em;
+            border-radius: 10px;
+        }
+        .section-title {
+            width: 100%;
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 1em;
+            color: #1D1C3B;
+        }
+        .feature {
+            flex: 1 1 45%;
+            margin: 1em;
+            padding: 1.5em;
+            background-color: #4DB6AC;
+            border-radius: 8px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.8em 1.5em; /* Larger button */
+            background-color: #87CED9;
+            color: #1D1C3B;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 1em;
+            cursor: pointer;
+            font-weight: bold;
+            border: 2px solid #1D1C3B;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .btn:hover {
+            background-color: #1D1C3B;
+            color: #FFFFFF;
+        }
+        footer {
+            background-color: #1D1C3B;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 1.5em;
+            font-size: 0.9em;
+        }
+        .content-tab {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(29, 28, 59, 0.8);
+            padding-top: 50px;
+        }
+        .tab-inner-content {
+            background-color: #C5DCA2;
+            color: #1D1C3B;
+            margin: 5% auto;
+            padding: 40px;
+            border: 2px solid #4DB6AC;
+            width: 85%;
+            max-width: 900px;
+            border-radius: 10px;
+            position: relative;
+        }
+        .close-btn {
+            color: #1D1C3B;
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #FFFFFF;
+        }
+        .video-container { /* For embedding tutorial videos */
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            margin: 1em 0;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .scheme-item, .event-item { /* For styling lists of schemes/events */
+           border-bottom: 2px solid #87CED9;
+           padding: 1em 0;
+           margin-bottom: 1em;
+        }
+        .scheme-item:last-child, .event-item:last-child {
+            border-bottom: none;
+        }
 
-    header {
-      background-color: #1D1C3B;
-      color: #FFFFFF;
-      padding: 1em 2em;
-      display: flex;
-      align-items: center;
-    }
-
-    .logo {
-      width: 130px;
-      height: auto;
-      margin-right: 100px;
-    }
-
-    .header-text {
-      flex-grow: 1;
-    }
-
-    nav {
-      background-color: #4DB6AC;
-      padding: 1em;
-      text-align: center;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #1D1C3B;
-      padding: 0.5em 1em;
-      background-color: #87CED9;
-      border-radius: 5px;
-      margin: 0.3em;
-      display: inline-block;
-      font-weight: bold;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2em;
-    }
-
-    .feature-section {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      margin-bottom: 2em;
-    }
-
-    .feature {
-      flex: 1 1 45%;
-      margin: 1em;
-      padding: 1.5em;
-      background-color: #4DB6AC;
-      border-radius: 8px;
-      text-align: center;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.5em 1.5em;
-      background-color: #87CED9;
-      color: #1D1C3B;
-      text-decoration: none;
-      border-radius: 5px;
-      margin-top: 1em;
-      cursor: pointer;
-    }
-
-    footer {
-      background-color: #1D1C3B;
-      color: #FFFFFF;
-      text-align: center;
-      padding: 1em;
-      font-size: 0.9em;
-    }
-
-    /* New Styles for Content Tabs */
-    .content-tab {
-        display: none; /* Hidden by default */
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(29, 28, 59, 0.7); /* Dark overlay */
-        padding-top: 60px;
-    }
-
-    .tab-inner-content {
-        background-color: #C5DCA2; /* Match body background */
-        color: #1D1C3B; /* Match body text color */
-        margin: 5% auto;
-        padding: 40px;
-        border: 1px solid #888;
-        width: 80%;
-        max-width: 800px;
-        border-radius: 10px;
-        position: relative;
-    }
-
-    .close-btn {
-        color: #1D1C3B;
-        position: absolute;
-        top: 10px;
-        right: 25px;
-        font-size: 35px;
-        font-weight: bold;
-        cursor: pointer;
-    }
-
-    .close-btn:hover,
-    .close-btn:focus {
-        color: #FFFFFF;
-    }
-
-
-    @media screen and (max-width: 768px) {
-      .feature-section {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      header {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .logo {
-        margin: 0 auto 10px auto;
-      }
-
-      nav a {
-        display: block;
-        margin: 0.5em auto;
-      }
-    }
-  </style>
+        @media screen and (max-width: 768px) {
+            .feature-section {
+                flex-direction: column;
+                align-items: center;
+            }
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .logo {
+                margin: 0 auto 10px auto;
+            }
+            nav a {
+                display: block;
+                margin: 0.5em auto;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <header>
-    <img src="images/Karigar's hub logo.jpg" alt="Karigar's Hub Logo" class="logo">
-    <div class="header-text">
-      <h1>KARIGAR's HUB {କାରିଗର ହବ୍}</h1>
-      <p>PORTAL FOR ALL IN ONE {ସମସ୍ତଙ୍କ ପାଇଁ ପୋର୍ଟାଲ୍ }</p>
-    </div>
-  </header>
-
-  <nav>
-    <a href="#about">About Us {ଆମ ବିଷୟରେ}</a>
-    <a href="#register">Join as Artisan {କାରିଗର ଭାବରେ ଯୋଗଦାନ କରନ୍ତୁ}</a>
-    <a href="#crafts">Craft Categories {ହସ୍ତଶିଳ୍ପ ବର୍ଗଗୁଡ଼ିକ}</a>
-    <a href="#workshops">Workshops {କର୍ମଶାଳା}</a>
-    <a href="#collab">Collaborations {ସହଯୋଗିତା}</a>
-    <a href="#gallery">Gallery {ଗ୍ୟାଲେରୀ}</a>
-    <a href="#schemes">Schemes {ସ୍କିମ୍‌ଗୁଡ଼ିକ}</a>
-    <a href="#support">Support {ସମର୍ଥନ}</a>
-  </nav>
-
-  <div class="container">
-    <section id="about" class="feature-section">
-      <div class="feature">
-        <h2>About Karigar's Hub {କାରିଗରଙ୍କ ହବ୍ ବିଷୟରେ}</h2>
-        <p>A platform to connect, empower, and celebrate traditional artisans across India. Discover their stories, their skills, and how you can support them.</p>
-        <p>{ ସାରା ଭାରତରେ ପାରମ୍ପରିକ କାରିଗରମାନଙ୍କୁ ସଂଯୋଗ କରିବା, ସଶକ୍ତ କରିବା ଏବଂ ପାଳନ କରିବା ପାଇଁ ଏକ ପ୍ଲାଟଫର୍ମ। ସେମାନଙ୍କ କାହାଣୀ, ସେମାନଙ୍କ ଦକ୍ଷତା ଏବଂ ଆପଣ ସେମାନଙ୍କୁ କିପରି ସମର୍ଥନ କରିପାରିବେ ତାହା ଆବିଷ୍କାର କରନ୍ତୁ। }</p>
-        <a class="btn" data-target="tab-about">Learn More {ଅଧିକ ଜାଣନ୍ତୁ}</a>
-      </div>
-    </section>
-
-    <section id="register" class="feature-section">
-      <div class="feature" style="flex: 1 1 100%;">
-        <h2>Join as an Artisan {ଜଣେ କାରିଗର ଭାବରେ ଯୋଗଦାନ କରନ୍ତୁ}</h2>
-        <p>Register to be part of Karigar's Hub and showcase your work to the world.</p>
-        <p>{ କାରିଗର ହବ୍‌ର ଅଂଶ ହେବା ପାଇଁ ପଞ୍ଜୀକରଣ କରନ୍ତୁ ଏବଂ ଆପଣଙ୍କ କାମକୁ ବିଶ୍ୱ ସମ୍ମୁଖରେ ପ୍ରଦର୍ଶନ କରନ୍ତୁ। }</p>
-        <form style="text-align: left; max-width: 500px; margin: auto;">
-          <label for="name">Full Name {ପୂରା ନାମ}:</label><br>
-          <input type="text" id="name" name="name" style="width: 100%; padding: 8px; margin: 6px 0;"><br>
-          <label for="craft">Type of Craft {ହସ୍ତଶିଳ୍ପର ପ୍ରକାର}:</label><br>
-          <input type="text" id="craft" name="craft" style="width: 100%; padding: 8px; margin: 6px 0;"><br>
-          <label for="location">Location {ଲୋକେସନ୍}:</label><br>
-          <input type="text" id="location" name="location" style="width: 100%; padding: 8px; margin: 6px 0;"><br>
-          <label for="contact">Contact Info {ଯୋଗାଯୋଗ ସୂଚନା}:</label><br>
-          <input type="text" id="contact" name="contact" style="width: 100%; padding: 8px; margin: 6px 0;"><br>
-          <input type="submit" value="Register {ପଞ୍ଜୀକୃତ କରନ୍ତୁ}" style="margin-top: 10px; padding: 10px 20px; background-color: #87CED9; color: #1D1C3B; border: none; border-radius: 5px;">
-        </form>
-      </div>
-    </section>
-
-    <section id="crafts" class="feature-section">
-      <div class="feature">
-        <h2>Handloom & Weaving {ହସ୍ତତନ୍ତ ଏବଂ ବୟନ}</h2>
-        <p>Explore India's rich textile traditions and regional weaves by artisans.</p>
-        <p>{ ଭାରତର ସମୃଦ୍ଧ ବୟନ ପରମ୍ପରା ଏବଂ କାରିଗରମାନଙ୍କ ଦ୍ୱାରା ଆଞ୍ଚଳିକ ବୟନକୁ ଅନୁସନ୍ଧାନ କରନ୍ତୁ। }</p>
-        <a class="btn" data-target="tab-crafts">Explore Crafts {ହସ୍ତଶିଳ୍ପ ଅନୁସନ୍ଧାନ କରନ୍ତୁ}</a>
-      </div>
-      <div class="feature">
-        <h2>Terracotta & Pottery {ଟେରାକୋଟା ଏବଂ ମାଟି ପାତ୍ର}</h2>
-        <p>Discover the beauty of natural clay artistry made with age-old techniques.</p>
-        <p>{ ପୁରୁଣା କୌଶଳରେ ତିଆରି ପ୍ରାକୃତିକ ମାଟିର କଳାକୃତିର ସୌନ୍ଦର୍ଯ୍ୟ ଆବିଷ୍କାର କରନ୍ତୁ। }</p>
-        <a class="btn" data-target="tab-artisans">See Artisans {କାରିଗରମାନଙ୍କୁ ଦେଖନ୍ତୁ}</a>
-      </div>
-    </section>
-
-    <section id="workshops" class="feature-section">
-      <div class="feature">
-        <h2>Upcoming Workshops {ଆଗାମୀ କର୍ମଶାଳାଗୁଡ଼ିକ}</h2>
-        <p>Hands-on training and virtual sessions by master artisans and designers.</p>
-        <p>{ ଦକ୍ଷ କାରିଗର ଏବଂ ଡିଜାଇନରମାନଙ୍କ ଦ୍ୱାରା ବ୍ୟବହାରିକ ତାଲିମ ଏବଂ ଭର୍ଚୁଆଲ୍ ଅଧିବେଶନ। }</p>
-        <a class="btn" data-target="tab-schedule">View Schedule {ସମୟସୂଚୀ ଦେଖନ୍ତୁ}</a>
-      </div>
-      <div class="feature">
-        <h2>Live Demonstrations {ଲାଇଭ୍ ପ୍ରଦର୍ଶନ}</h2>
-        <p>Watch skilled craftsmen at work and learn the intricate process behind the art.</p>
-        <p>{ ଦକ୍ଷ କାରିଗରମାନଙ୍କୁ କାମରେ ଦେଖନ୍ତୁ ଏବଂ କଳା ପଛରେ ଥିବା ଜଟିଳ ପ୍ରକ୍ରିୟା ଶିଖନ୍ତୁ। }</p>
-        <a class="btn" data-target="tab-live">Watch Live {ଲାଇଭ୍ ଦେଖନ୍ତୁ}</a>
-      </div>
-    </section>
-
-    <section id="collab" class="feature-section">
-      <div class="feature">
-        <h2>Collaboration Board {ସହଯୋଗ ବୋର୍ଡ}</h2>
-        <p>Connect with designers, brands, and NGOs for project-based collaboration.</p>
-        <p>{ ପ୍ରକଳ୍ପ-ଭିତ୍ତିକ ସହଯୋଗ ପାଇଁ ଡିଜାଇନର, ବ୍ରାଣ୍ଡ ଏବଂ ଏନଜିଓମାନଙ୍କ ସହିତ ସଂଯୋଗ କରନ୍ତୁ। }</p>
-        <a class="btn" data-target="tab-collab">Start Collaborating {ସହଯୋଗ କରିବା ଆରମ୍ଭ କରନ୍ତୁ}</a>
-      </div>
-      <div class="feature">
-        <h2>Community Stories {ସମ୍ପ୍ରଦାୟ କାହାଣୀଗୁଡ଼ିକ}</h2>
-        <p>Real stories from artisans about change, resilience, and creativity.</p>
-        <p>{ ପରିବର୍ତ୍ତନ, ସ୍ଥିରତା ଏବଂ ସୃଜନଶୀଳତା ବିଷୟରେ କାରିଗରମାନଙ୍କଠାରୁ ପ୍ରକୃତ କାହାଣୀ। }</p>
-        <a class="btn" data-target="tab-stories">Read Stories {କାହାଣୀ ପଢ଼ନ୍ତୁ}</a>
-      </div>
-    </section>
-
-    <section id="gallery" class="feature-section">
-      <div class="feature" style="flex: 1 1 100%;">
-        <h2>Artisan Gallery</h2>
-        <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
-          <img src="images/KH pic 1.jpg" style="width: 200px; border-radius: 10px;">
-          <img src="images/KH pic 2.jpg" style="width: 200px; border-radius: 10px;">
-          <img src="images/KH pic 3.jpg" style="width: 200px; border-radius: 10px;">
-          <img src="images/KH pic 4.jpg" style="width: 200px; border-radius: 10px;">
+    <header>
+        <img src="images/Karigar's hub logo.jpg" alt="Karigar's Hub Logo" class="logo">
+        <div class="header-text">
+            <h1>KARIGAR's HUB {କାରିଗର ହବ୍}</h1>
+            <p>A Single Portal to Empower Weavers of Taraboi {ତାରାବୋଇର ବୁଣାକାରମାନଙ୍କୁ ସଶକ୍ତ କରିବା ପାଇଁ ଏକକ ପୋର୍ଟାଲ୍}</p>
         </div>
-      </div>
-    </section>
+    </header>
 
-    <section id="schemes" class="feature-section">
-      <div class="feature">
-        <h2>Government Schemes {ସରକାରୀ ଯୋଜନା}</h2>
-        <p>Get details of central and state schemes supporting artisan livelihoods.</p>
-        <p>{ କାରିଗର ଜୀବିକା ନିର୍ବାହକୁ ସମର୍ଥନ କରୁଥିବା କେନ୍ଦ୍ରୀୟ ଏବଂ ରାଜ୍ୟ ଯୋଜନାଗୁଡ଼ିକର ବିବରଣୀ ପାଆନ୍ତୁ। }</p>
-        <a class="btn" data-target="tab-schemes">Explore Schemes {ସ୍କିମ୍‌ଗୁଡ଼ିକୁ ଏକ୍ସପ୍ଲୋର୍ କରନ୍ତୁ}</a>
-      </div>
-      <div class="feature">
-        <h2>Grants & Loans {ଅନୁଦାନ ଏବଂ ଋଣ}</h2>
-        <p>Information on how artisans can access financial assistance.</p>
-        <p>{ କାରିଗରମାନେ କିପରି ଆର୍ଥିକ ସହାୟତା ପାଇପାରିବେ ସେ ବିଷୟରେ ସୂଚନା। }</p>
-        <a class="btn" data-target="tab-grants">Learn More {ଅଧିକ ଜାଣନ୍ତୁ}</a>
-      </div>
-    </section>
+    <nav>
+        <a href="#about">About Us {ଆମ ବିଷୟରେ}</a>
+        <a href="#learn">Learn & Grow {ଶିଖନ୍ତୁ ଓ ଆଗକୁ ବଢନ୍ତୁ}</a>
+        <a href="#schemes">Schemes & Support {ଯୋଜନା ଓ ସହାୟତା}</a>
+        <a href="#events">Events & Fairs {ମେଳା ଓ ଇଭେଣ୍ଟ}</a>
+        <a href="#sell">Sell Your Craft {ନିଜ କଳା ବିକ୍ରି କରନ୍ତୁ}</a>
+        <a href="#register">Join Us {ଆମ ସହ ଯୋଗ ଦିଅନ୍ତୁ}</a>
+    </nav>
 
-    <section id="map" class="feature-section">
-      <div class="feature" style="flex: 1 1 100%;">
-        <h2>Our Artisan Network {ଆମର କାରିଗର ନେଟୱାର୍କ}</h2>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12311.354886437517!2d85.6382472!3d20.1304679!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19adaa7c57c07b%3A0x8690f38fb3d92fc0!2sTaraboi%2C%20Odisha%20752050!5e1!3m2!1sen!2sin!4v1754058175270!5m2!1sen!2sin" height="400" style="border:0; width: 100%;" allowfullscreen="" loading="lazy">
-        </iframe>
-      </div>
-    </section>
+    <div class="container">
+        
+        <section id="about" class="feature-section">
+            <div class="feature" style="flex: 1 1 100%; text-align:center;">
+                <h2>Our Mission {ଆମର ଲକ୍ଷ୍ୟ}</h2>
+                <p>To provide the weavers of Taraboi with the digital tools, knowledge, and platform needed to grow their craft, improve their livelihood, and stand on their own feet. We aim to connect tradition with technology.</p>
+                <p>{ତାରାବୋଇର ବୁଣାକାରମାନଙ୍କୁ ଡିଜିଟାଲ୍ ଉପକରଣ, ଜ୍ଞାନ ଏବଂ ପ୍ଲାଟଫର୍ମ ପ୍ରଦାନ କରିବା ଯାହା ସେମାନଙ୍କର କଳାକୁ ବଢ଼ାଇବା, ଜୀବିକା ଉନ୍ନତ କରିବା ଏବଂ ନିଜ ଗୋଡ଼ରେ ଛିଡ଼ା ହେବା ପାଇଁ ଆବଶ୍ୟକ। ଆମର ଲକ୍ଷ୍ୟ ହେଉଛି ପରମ୍ପରାକୁ ପ୍ରଯୁକ୍ତିବିଦ୍ୟା ସହିତ ଯୋଡ଼ିବା।}</p>
+                <img src="images/KH pic 1.jpg" style="width: 80%; max-width: 500px; border-radius: 10px; margin: 1em auto;">
+            </div>
+        </section>
 
-    <section id="support" class="feature-section">
-      <div class="feature">
-        <h2>Contact & Support {ଯୋଗାଯୋଗ ଓ ସମର୍ଥନ}</h2>
-        <p>Reach out to us for help, partnership inquiries, or general info.</p>
-        <p>{ ସାହାଯ୍ୟ, ସହଭାଗୀତା ପ୍ରଶ୍ନ କିମ୍ବା ସାଧାରଣ ସୂଚନା ପାଇଁ ଆମ ସହିତ ଯୋଗାଯୋଗ କରନ୍ତୁ }</p>
-        <a class="btn" data-target="tab-support">Get in Touch {ସମ୍ପର୍କରେ ରୁହନ୍ତୁ}</a>
-      </div>
-    </section>
-  </div>
+        <section id="learn" class="feature-section">
+            <h2 class="section-title">Learn & Grow {ଶିଖନ୍ତୁ ଓ ଆଗକୁ ବଢନ୍ତୁ}</h2>
+            <div class="feature">
+                <h3>Tutorial Videos {ଟ୍ୟୁଟୋରିଆଲ୍ ଭିଡିଓ}</h3>
+                <p>Step-by-step video guides in Odia to help you with everything you need.</p>
+                <p>{ଆପଣଙ୍କୁ ଆବଶ୍ୟକ କରୁଥିବା ସମସ୍ତ ବିଷୟରେ ସାହାଯ୍ୟ କରିବା ପାଇଁ ଓଡ଼ିଆରେ ପର୍ଯ୍ୟାୟକ୍ରମେ ଭିଡିଓ ଗାଇଡ୍।}</p>
+                <a class="btn" data-target="tab-tutorials">Watch Videos {ଭିଡିଓ ଦେଖନ୍ତୁ}</a>
+            </div>
+            <div class="feature">
+                <h3>Build Your Career {ନିଜ କ୍ୟାରିୟର ଗଢନ୍ତୁ}</h3>
+                <p>Learn how to create new designs, manage your money, and build your own brand.</p>
+                <p>{ନୂଆ ଡିଜାଇନ୍ କିପରି ତିଆରି କରିବେ, ଟଙ୍କା ପରିଚାଳନା କରିବେ ଏବଂ ନିଜର ବ୍ରାଣ୍ଡ୍ କିପରି ତିଆରି କରିବେ ଶିଖନ୍ତୁ।}</p>
+                <a class="btn" data-target="tab-career">Learn More {ଅଧିକ ଜାଣନ୍ତୁ}</a>
+            </div>
+        </section>
 
-  <footer>
-    <p>© 2025 Karigar's Hub | Empowering Artisans, Celebrating Craft.</p>
-    <p>{ © 2025 କାରିଗର ହବ୍ | କାରିଗରମାନଙ୍କୁ ସଶକ୍ତ କରିବା, ହସ୍ତଶିଳ୍ପ ପାଳନ କରିବା। }</p>
-  </footer>
+        <section id="schemes" class="feature-section">
+            <h2 class="section-title">Schemes & Support {ଯୋଜନା ଓ ସହାୟତା}</h2>
+            <div class="feature">
+                <h3>Government Schemes {ସରକାରୀ ଯୋଜନା}</h3>
+                <p>All Central and State Government schemes available for handloom artisans in Odisha.</p>
+                <p>{ଓଡ଼ିଶାର ହସ୍ତତନ୍ତ କାରିଗରମାନଙ୍କ ପାଇଁ ଉପଲବ୍ଧ ସମସ୍ତ କେନ୍ଦ୍ର ଓ ରାଜ୍ୟ ସରକାରୀ ଯୋଜନା।}</p>
+                <a class="btn" data-target="tab-schemes">Explore Schemes {ଯୋଜନା ଦେଖନ୍ତୁ}</a>
+            </div>
+            <div class="feature">
+                <h3>Bank Loans & Investments {ବ୍ୟାଙ୍କ ଋଣ ଓ ନିବେଶ}</h3>
+                <p>Information on low-interest loans from banks and how to apply.</p>
+                <p>{ବ୍ୟାଙ୍କରୁ କମ୍ ସୁଧରେ ଋଣ ଏବଂ କିପରି ଆବେଦନ କରିବେ ସେ ବିଷୟରେ ସୂଚନା।}</p>
+                <a class="btn" data-target="tab-loans">Find Loans {ଋଣ ଖୋଜନ୍ତୁ}</a>
+            </div>
+        </section>
+        
+        <section id="events" class="feature-section">
+            <h2 class="section-title">Events & Fairs {ମେଳା ଓ ଇଭେଣ୍ଟ}</h2>
+            <div class="feature" style="flex: 1 1 100%;">
+                <h3>Exhibitions & Melas {ପ୍ରଦର୍ଶନୀ ଓ ମେଳା}</h3>
+                <p>Find out about upcoming handloom events and craft fairs in Odisha and across India.</p>
+                <p>{ଓଡ଼ିଶା ଏବଂ ସାରା ଭାରତରେ ହେବାକୁ ଥିବା ହସ୍ତତନ୍ତ ଇଭେଣ୍ଟ ଏବଂ ହସ୍ତଶିଳ୍ପ ମେଳା ବିଷୟରେ ଜାଣନ୍ତୁ।}</p>
+                <a class="btn" data-target="tab-events">View Event List {ଇଭେଣ୍ଟ ତାଲିକା ଦେଖନ୍ତୁ}</a>
+            </div>
+        </section>
 
-  <div id="tab-about" class="content-tab">
-    <div class="tab-inner-content">
-      <span class="close-btn">&times;</span>
-      <h2>More About Karigar's Hub</h2>
-      <p>Karigar's Hub is a platform dedicated to connecting, empowering, and celebrating traditional artisans across India. Here, timeless skills meet modern support, as we spotlight the stories, craftsmanship, and cultural heritage of our artisans. More than just a space—it's a growing community where traditions come alive, talents are recognized, and collaboration thrives. Whether it's through workshops, showcasing crafts, or offering support, Karigar's Hub is where artisans and admirers come together—hand in hand—to preserve and promote the soul of Indian artistry.</p>
+        <section id="sell" class="feature-section">
+            <h2 class="section-title">Sell Your Craft {ନିଜ କଳା ବିକ୍ରି କରନ୍ତୁ}</h2>
+            <div class="feature" style="flex: 1 1 100%;">
+                <h3>Showcase Your Products {ଆପଣଙ୍କ ଉତ୍ପାଦ ପ୍ରଦର୍ଶନ କରନ୍ତୁ}</h3>
+                <p>Register with us to create your own page on Karigar Hub and sell your products directly to customers.</p>
+                <p>{ଆମ ସହିତ ପଞ୍ଜୀକରଣ କରନ୍ତୁ ଏବଂ କାରିଗର ହବ୍‌ରେ ନିଜର ପେଜ୍ ତିଆରି କରି ଗ୍ରାହକମାନଙ୍କୁ ସିଧାସଳଖ ଆପଣଙ୍କ ଉତ୍ପାଦ ବିକ୍ରି କରନ୍ତୁ।}</p>
+                 <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 1em;">
+                    <img src="images/KH pic 2.jpg" style="width: 200px; height:200px; object-fit:cover; border-radius: 10px;">
+                    <img src="images/KH pic 3.jpg" style="width: 200px; height:200px; object-fit:cover; border-radius: 10px;">
+                    <img src="images/KH pic 4.jpg" style="width: 200px; height:200px; object-fit:cover; border-radius: 10px;">
+                </div>
+            </div>
+        </section>
+        
+        <section id="register" class="feature-section">
+            <h2 class="section-title">Join Karigar Hub Today! {ଆଜି ହିଁ କାରିଗର ହବ୍‌ରେ ଯୋଗ ଦିଅନ୍ତୁ!}</h2>
+            <div class="feature" style="flex: 1 1 100%;">
+                <form style="text-align: left; max-width: 500px; margin: auto;">
+                    <label for="name">Full Name {ପୂରା ନାମ}:</label><br>
+                    <input type="text" id="name" name="name" required style="width: 100%; padding: 8px; margin: 6px 0;"><br>
+                    <label for="contact">Phone Number {ଫୋନ୍ ନମ୍ବର}:</label><br>
+                    <input type="tel" id="contact" name="contact" required style="width: 100%; padding: 8px; margin: 6px 0;"><br>
+                    <label for="location">Village/Address {ଗାଁ/ଠିକଣା}:</label><br>
+                    <input type="text" id="location" name="location" value="Taraboi" style="width: 100%; padding: 8px; margin: 6px 0;"><br>
+                    <label for="craft">Type of Weaving {ବୁଣାକାର୍ଯ୍ୟର ପ୍ରକାର}:</label><br>
+                    <input type="text" id="craft" name="craft" placeholder="e.g., Bomkai, Sambalpuri" style="width: 100%; padding: 8px; margin: 6px 0;"><br>
+                    <input type="submit" value="Register Now {ବର୍ତ୍ତମାନ ପଞ୍ଜୀକରଣ କରନ୍ତୁ}" style="margin-top: 10px; padding: 10px 20px; background-color: #87CED9; color: #1D1C3B; border: none; border-radius: 5px; width: 100%; font-size: 1.2em; cursor: pointer;">
+                </form>
+            </div>
+        </section>
+
+        <section id="map" class="feature-section">
+            <h2 class="section-title">Our Artisan Network in Taraboi {ତାରାବୋଇରେ ଆମର କାରିଗର ନେଟୱାର୍କ}</h2>
+            <div class="feature" style="flex: 1 1 100%;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3748.807914481075!2d85.52928801486898!3d20.017180986556156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19001362e33671%3A0x67341b525f0a207!2sTaraboi%2C%20Odisha%20752020!5e0!3m2!1sen!2sin!4v1660000000000!5m2!1sen!2sin" height="400" style="border:0; width: 100%;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
+
     </div>
-  </div>
 
-  <div id="tab-crafts" class="content-tab">
-    <div class="tab-inner-content">
-      <span class="close-btn">&times;</span>
-      <h2>Explore Handloom & Weaving</h2>
-      <p>Add detailed descriptions, images, and histories of the different handloom and weaving crafts featured on your platform. You can categorize them by region or technique.</p>
+    <footer>
+        <p>© 2025 Karigar's Hub | Designed to Uplift the Weavers of Taraboi.</p>
+        <p>{© 2025 କାରିଗର ହବ୍ | ତାରାବୋଇର ବୁଣାକାରମାନଙ୍କ ଉନ୍ନତି ପାଇଁ ପରିକଳ୍ପିତ।}</p>
+    </footer>
+
+    <div id="tab-tutorials" class="content-tab">
+        <div class="tab-inner-content">
+            <span class="close-btn">&times;</span>
+            <h2>Tutorial Videos {ଟ୍ୟୁଟୋରିଆଲ୍ ଭିଡିଓ}</h2>
+            <p>Watch these videos in Odia to learn important skills.</p>
+            <div class="scheme-item">
+                <h3>How to Register for an Artisan Card {କାରିଗର କାର୍ଡ ପାଇଁ କିପରି ପଞ୍ଜୀକରଣ କରିବେ}</h3>
+                <p>This video shows you step-by-step how to fill the form on the government portal and what documents are needed.</p>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Artisan Card Tutorial" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="scheme-item">
+                <h3>How to Take Good Photos of Your Products {ଉତ୍ପାଦର ଭଲ ଫଟୋ କିପରି ଉଠାଇବେ}</h3>
+                <p>Learn how to use any mobile phone to take clear and beautiful photos of your sarees and fabrics to attract customers.</p>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Product Photography Tutorial" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-
-  <div id="tab-artisans" class="content-tab">
-    <div class="tab-inner-content">
-      <span class="close-btn">&times;</span>
-      <h2>Terracotta & Pottery Artisans</h2>
-      <p>Showcase the profiles of artisans specializing in terracotta and pottery. Include their stories, photos of their work, and links to their portfolios.</p>
+    
+    <div id="tab-career" class="content-tab">
+        <div class="tab-inner-content">
+            <span class="close-btn">&times;</span>
+            <h2>Build Your Career {ନିଜ କ୍ୟାରିୟର ଗଢନ୍ତୁ}</h2>
+             <p>Resources to help you grow your skills and income.</p>
+            <div class="scheme-item">
+                <h3>New Design Ideas {ନୂଆ ଡିଜାଇନ୍ ਵਿਚਾਰ}</h3>
+                <p>Learn about new color combinations and patterns that are popular in the market. We will share new design books and ideas here every month.</p>
+            </div>
+            <div class="scheme-item">
+                <h3>Financial Literacy {ଆର୍ଥିକ ସାକ୍ଷରତା}</h3>
+                <p>Learn how to open a bank account, how to use digital payments like PhonePe or Google Pay, and why saving money is important. We will organize local workshops for this.</p>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <div id="tab-schedule" class="content-tab">
-    <div class="tab-inner-content">
-      <span class="close-btn">&times;</span>
-      <h2>Workshop Schedule</h2>
-      <p>List all upcoming workshops here. Include details like the date, time, topic, instructor, cost (if any), and a registration link for each workshop.</p>
+    <div id="tab-schemes" class="content-tab">
+        <div class="tab-inner-content">
+            <span class="close-btn">&times;</span>
+            <h2>Government Schemes for Handloom Artisans {ହସ୍ତତନ୍ତ କାରିଗରଙ୍କ ପାଇଁ ସରକାରୀ ଯୋଜନା}</h2>
+            <div class="scheme-item">
+                <h3>National Handloom Development Programme (NHDP)</h3>
+                <p><strong>Benefit:</strong> Provides financial assistance for looms, accessories, design innovation, and skill upgradation.</p>
+                <p><strong>Who can apply:</strong> Weavers who have an Artisan Card.</p>
+                <a href="https://handlooms.nic.in/" target="_blank" class="btn">Official Portal</a>
+            </div>
+             <div class="scheme-item">
+                <h3>Pradhan Mantri Weavers MUDRA Scheme</h3>
+                <p><strong>Benefit:</strong> Provides loans at a very low interest rate (6%) for working capital needs.</p>
+                <p><strong>Who can apply:</strong> All handloom weavers.</p>
+                <a href="https://www.mudra.org.in/" target="_blank" class="btn">Learn More</a>
+            </div>
+             <div class="scheme-item">
+                <h3>"Baristha Bunakar Sahayata Yojana" (Odisha State Scheme)</h3>
+                <p><strong>Benefit:</strong> Monthly financial assistance for weavers above the age of 60.</p>
+                <p><strong>Who can apply:</strong> Senior weavers of Odisha.</p>
+                <a href="https://handloom.odisha.gov.in/schemes/" target="_blank" class="btn">State Portal</a>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <div id="tab-live" class="content-tab">
-    <div class="tab-inner-content">
-      <span class="close-btn">&times;</span>
-      <h2>Live Demonstrations</h2>
-      <p>Embed live stream videos here or provide a schedule of upcoming live sessions where users can watch artisans at work in real-time.</p>
+    <div id="tab-loans" class="content-tab">
+        <div class="tab-inner-content">
+            <span class="close-btn">&times;</span>
+            <h2>Bank Loans & Financial Support {ବ୍ୟାଙ୍କ ଋଣ ଓ ଆର୍ଥିକ ସହାୟତା}</h2>
+            <p>Many banks offer special loans for artisans under the MUDRA scheme. We can help you connect with the nearest bank branch and assist with the application process.</p>
+            <p><strong>Banks providing MUDRA loans:</strong></p>
+            <ul>
+                <li>State Bank of India (SBI)</li>
+                <li>Punjab National Bank (PNB)</li>
+                <li>Utkal Grameen Bank</li>
+                <li>Bandhan Bank</li>
+            </ul>
+            <p>We will soon upload a video tutorial explaining the full loan application process.</p>
+        </div>
     </div>
-  </div>
-
-  <div id="tab-collab" class="content-tab">
-    <div class="tab-inner-content">
-      <span class="close-btn">&times;</span>
-      <h2>Collaboration Opportunities</h2>
-      <p>This space can function as a bulletin board. Post collaboration requests from designers, brands, or NGOs looking for artisans. Artisans can also post their availability for projects.</p>
+    
+    <div id="tab-events" class="content-tab">
+        <div class="tab-inner-content">
+            <span class="close-btn">&times;</span>
+            <h2>Upcoming Events & Fairs {ଆଗାମୀ ମେଳା ଓ ଇଭେଣ୍ଟ}</h2>
+            <div class="event-item">
+                <h3>Toshali National Crafts Mela, Bhubaneswar</h3>
+                <p><strong>When:</strong> Usually in December every year.</p>
+                <p><strong>What it is:</strong> One of the biggest craft fairs in Eastern India. A great opportunity to showcase and sell products.</p>
+                <p><strong>How to Enroll:</strong> We will provide updates and help with the application form when the dates are announced.</p>
+            </div>
+            <div class="event-item">
+                <h3>Dilli Haat, New Delhi - Odisha Handloom Stall</h3>
+                <p><strong>When:</strong> Stalls are rotated. Dates are announced by the Handloom department.</p>
+                <p><strong>What it is:</strong> A permanent exhibition space in Delhi. Getting a stall here means huge exposure.</p>
+                 <p><strong>How to Enroll:</strong> Applications are usually submitted through the State Handloom Directorate. We will notify you.</p>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <div id="tab-stories" class="content-tab">
-    <div class="tab-inner-content">
-      <span class="close-btn">&times;</span>
-      <h2>Community Stories</h2>
-      <p>Feature in-depth articles, interviews, and photo-essays about the artisans. These stories can highlight their journey, the impact of the hub, and the cultural significance of their craft.</p>
-    </div>
-  </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const openButtons = document.querySelectorAll('.btn[data-target]');
+            const closeButtons = document.querySelectorAll('.content-tab .close-btn');
 
-  <div id="tab-schemes" class="content-tab">
-    <div class="tab-inner-content">
-      <span class="close-btn">&times;</span>
-      <h2>Government Schemes for Artisans</h2>
-      <p>Provide a comprehensive list of relevant government schemes. For each scheme, explain the benefits, eligibility criteria, and the application process with direct links to official portals.</p>
-    </div>
-  </div>
+            function openTab(tabId) {
+                const tab = document.getElementById(tabId);
+                if (tab) {
+                    tab.style.display = 'block';
+                }
+            }
 
-  <div id="tab-grants" class="content-tab">
-    <div class="tab-inner-content">
-      <span class="close-btn">&times;</span>
-      <h2>Financial Assistance: Grants & Loans</h2>
-      <p>Detail the various grants, loans, and other financial support options available to artisans from different organizations (government, NGOs, private sector). Provide clear guidance on how to apply.</p>
-    </div>
-  </div>
+            function closeAllTabs() {
+                document.querySelectorAll('.content-tab').forEach(tab => {
+                    tab.style.display = 'none';
+                });
+            }
 
-  <div id="tab-support" class="content-tab">
-    <div class="tab-inner-content">
-      <span class="close-btn">&times;</span>
-      <h2>Contact & Support Information</h2>
-      <p>Provide detailed contact information here, such as an email address, phone number, and a contact form. You can also include an FAQ section to answer common questions.</p>
-    </div>
-  </div>
+            openButtons.forEach(button => {
+                button.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    const targetTabId = this.getAttribute('data-target');
+                    openTab(targetTabId);
+                });
+            });
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // Get all the buttons that open a tab
-      const openButtons = document.querySelectorAll('.btn[data-target]');
-      
-      // Get all the close buttons
-      const closeButtons = document.querySelectorAll('.content-tab .close-btn');
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    this.closest('.content-tab').style.display = 'none';
+                });
+            });
 
-      // Function to open a tab
-      function openTab(tabId) {
-        const tab = document.getElementById(tabId);
-        if (tab) {
-          tab.style.display = 'block';
-        }
-      }
-
-      // Function to close a tab
-      function closeTab(tab) {
-        tab.style.display = 'none';
-      }
-
-      // Add click event to all open buttons
-      openButtons.forEach(button => {
-        button.addEventListener('click', function (event) {
-          event.preventDefault(); // Prevent page from jumping
-          const targetTabId = this.getAttribute('data-target');
-          openTab(targetTabId);
+            window.addEventListener('click', function (event) {
+                if (event.target.classList.contains('content-tab')) {
+                    event.target.style.display = 'none';
+                }
+            });
         });
-      });
-
-      // Add click event to all close buttons
-      closeButtons.forEach(button => {
-        button.addEventListener('click', function () {
-          const tabToClose = this.closest('.content-tab');
-          closeTab(tabToClose);
-        });
-      });
-
-      // Add click event to window to close tab if clicking outside the content
-      window.addEventListener('click', function (event) {
-        if (event.target.classList.contains('content-tab')) {
-          closeTab(event.target);
-        }
-      });
-    });
-  </script>
+    </script>
 
 </body>
 </html>
