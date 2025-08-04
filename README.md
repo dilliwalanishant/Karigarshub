@@ -114,7 +114,7 @@
 
   <!-- Header -->
   <header>
-    <img src="E:\images\Karigar's hub logo.jpg" alt="Karigar's Hub Logo" class="logo">
+    <img src="images/Karigar's hub logo.jpg" alt="Karigar's Hub Logo" class="logo">
     <div class="header-text">
       <h1>KARIGAR's HUB {କାରିଗର ହବ୍}</h1>
       <p>PORTAL FOR ALL IN ONE {ସମସ୍ତଙ୍କ ପାଇଁ ପୋର୍ଟାଲ୍ }</p>
