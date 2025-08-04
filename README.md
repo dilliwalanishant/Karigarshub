@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -211,7 +211,7 @@
       <div class="feature" style="flex: 1 1 100%;">
     <h2>Artisan Gallery</h2>
     <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
-      <img src="E:\images\KH pic 1.jpg" style="width: 200px; border-radius: 10px;">
+      <img src="images/Karigar's hub logo.jpg" style="width: 200px; border-radius: 10px;">
       <img src="E:\images\KH pic 2.jpg" style="width: 200px; border-radius: 10px;">
       <img src="E:\images\KH pic 3.jpg" style="width: 200px; border-radius: 10px;">
       <img src="E:\images\KH pic 4.jpg" style="width: 200px; border-radius: 10px;">
