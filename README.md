@@ -223,7 +223,7 @@
             <div class="feature" style="flex: 1 1 100%; text-align:center;">
                 <h2 data-key="missionTitle"><i class="fas fa-bullseye"></i> </h2>
                 <p data-key="missionText"></p>
-                <img src="images/KH pic 1.jpg" style="width: 80%; max-width: 500px; border-radius: 10px; margin: 1em auto;" alt="Weaver at a loom">
+                <img src="images/KH pic 1.jpg" style="width: 80%; max-width: 200px; border-radius: 10px; margin: 1em auto;" alt="Weaver at a loom">
             </div>
         </section>
 
