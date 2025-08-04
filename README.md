@@ -104,13 +104,13 @@
         footer p { margin-top: 0.5em; }
 
         /* MODAL STYLES */
-        .modal { /* Renamed for clarity */
+        .modal {
             display: none; position: fixed; z-index: 1000;
             left: 0; top: 0; width: 100%; height: 100%;
             overflow: auto; background-color: rgba(29, 28, 59, 0.9);
             padding-top: 50px;
         }
-        .modal-content { /* Renamed for clarity */
+        .modal-content {
             background-color: var(--background-light); color: var(--primary-dark);
             margin: 5% auto; padding: 40px; border: 2px solid var(--accent-blue);
             width: 85%; max-width: 900px; border-radius: 10px; position: relative;
@@ -143,8 +143,47 @@
         input:checked + .slider { background-color: var(--primary-dark); }
         input:checked + .slider:before { transform: translateX(26px); }
 
-        /* VOICE ASSISTANT & CHATBOT STYLES (Unchanged) */
-        #voice-popup, #chatbot-container, .floating-support-hub { /* Styles from previous version */ }
+        /* VOICE & CHATBOT STYLES */
+        .floating-support-hub { position: fixed; bottom: 25px; right: 25px; z-index: 950; }
+        .floating-btn {
+            width: 60px; height: 60px; background-color: var(--primary-dark);
+            color: var(--primary-light); border-radius: 50%; display: flex;
+            justify-content: center; align-items: center; font-size: 1.8em;
+            cursor: pointer; box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+        }
+        .floating-btn:hover { transform: scale(1.1); }
+
+        #chatbot-container {
+            display: none; position: fixed; bottom: 100px; right: 25px;
+            width: 350px; height: 500px; background: white;
+            border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 998; flex-direction: column; overflow: hidden;
+        }
+        #chatbot-header {
+            background: var(--primary-dark); color: white; padding: 15px;
+            font-weight: bold; font-size: 1.2em; display: flex;
+            justify-content: space-between; align-items: center;
+        }
+        #close-chatbot-btn { cursor: pointer; font-size: 1.2em; }
+        #chatbot-messages { flex-grow: 1; padding: 15px; overflow-y: auto; background: var(--background-light); }
+        .bot-message, .user-message {
+            padding: 10px 15px; border-radius: 18px; margin-bottom: 10px;
+            max-width: 80%; line-height: 1.4;
+        }
+        .bot-message { background: #e9ecef; color: var(--primary-dark); align-self: flex-start; }
+        .user-message { background: var(--accent-blue); color: var(--primary-dark); align-self: flex-end; margin-left: auto; }
+        #chatbot-faq-options { padding: 10px; border-top: 1px solid #ddd; }
+        .faq-btn {
+            width: 100%; background: var(--accent-blue); color: var(--primary-dark);
+            border: none; padding: 10px; border-radius: 8px; margin-bottom: 8px;
+            text-align: left; cursor: pointer; font-family: 'Georgia', serif; font-weight: bold;
+        }
+        #voice-popup {
+            display: none; flex-direction: column; justify-content: center; align-items: center;
+            position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(29, 28, 59, 0.95);
+        }
     </style>
 </head>
 <body>
@@ -178,19 +217,18 @@
     </nav>
 
     <div class="container">
-        <!-- NEW: Upcoming Event Section -->
         <section id="events" class="feature-section event-section">
             <div style="flex: 1 1 100%;">
-                <h2 data-key="eventTitle"><i class="fas fa-calendar-check icon"></i> Upcoming Event</h2>
-                <p data-key="eventName">Toshali National Crafts Mela</p>
-                <p><strong data-key="eventDateLabel">Date:</strong> <span data-key="eventDate">15th - 28th December</span> | <strong data-key="eventLocationLabel">Location:</strong> <span data-key="eventLocation">Bhubaneswar</span></p>
-                <p data-key="eventDesc">A great opportunity to showcase and sell your products. We can help with stall applications.</p>
+                <h2 data-key="eventTitle"><i class="fas fa-calendar-check icon"></i></h2>
+                <p data-key="eventName"></p>
+                <p><strong data-key="eventDateLabel"></strong> <span data-key="eventDate"></span> | <strong data-key="eventLocationLabel"></strong> <span data-key="eventLocation"></span></p>
+                <p data-key="eventDesc"></p>
             </div>
         </section>
 
         <section id="about" class="feature-section">
             <div class="feature" style="flex: 1 1 100%; text-align:center;">
-                <h2 data-key="missionTitle"><i class="fas fa-bullseye"></i> </h2>
+                <h2 data-key="missionTitle"><i class="fas fa-bullseye"></i></h2>
                 <p data-key="missionText"></p>
                 <img src="images/KH pic 1.jpg" style="width: 80%; max-width: 500px; border-radius: 10px; margin: 1em auto;" alt="Weaver at a loom">
             </div>
@@ -218,16 +256,15 @@
                 <h3 data-key="findSchemeTitle"></h3>
                 <p data-key="findSchemeText"></p>
                 <div class="recommender-form">
-                    <!-- MODIFIED: Artisan ID Question -->
-                    <label data-key="artisanIdLabel">Do you have an Artisan ID Card (Pehchan Card)?</label>
+                    <label data-key="artisanIdLabel"></label>
                     <div style="margin-bottom: 1em;">
                         <input type="radio" id="hasArtisanIdYes" name="hasArtisanId" value="yes">
-                        <label for="hasArtisanIdYes" data-key="yes">Yes</label>
+                        <label for="hasArtisanIdYes" data-key="yes"></label>
                         <input type="radio" id="hasArtisanIdNo" name="hasArtisanId" value="no" style="margin-left: 15px;">
-                        <label for="hasArtisanIdNo" data-key="no">No</label>
+                        <label for="hasArtisanIdNo" data-key="no"></label>
                     </div>
                     <div id="artisanIdInputContainer" style="display: none;">
-                        <label for="artisanId" data-key="enterIdLabel">Please enter your 12-digit Artisan ID:</label>
+                        <label for="artisanId" data-key="enterIdLabel"></label>
                         <input type="text" id="artisanId" name="artisanId" placeholder="123456789012">
                     </div>
                     <label for="age" data-key="ageLabel"></label>
@@ -281,38 +318,28 @@
         <p data-key="footerCopyright"></p>
     </footer>
 
-    <!-- MODALS START HERE -->
     <div id="tab-tutorials" class="modal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
             <h2 data-key="learnTitle"></h2>
-            <!-- NEW: Success Stories -->
             <div class="info-item">
-                <h3 data-key="successStoriesTitle"><i class="fas fa-star" style="color: var(--highlight-yellow);"></i> </h3>
+                <h3 data-key="successStoriesTitle"><i class="fas fa-star" style="color: var(--highlight-yellow);"></i></h3>
                 <p data-key="successStoriesText"></p>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/placeholder_success_video_id" title="Success Story" frameborder="0" allowfullscreen></iframe>
-                </div>
+                <div class="video-container"><iframe src="https://www.youtube.com/embed/placeholder_success_video_id" title="Success Story" frameborder="0" allowfullscreen></iframe></div>
             </div>
-            <!-- NEW: How to Sell -->
             <div class="info-item">
-                <h3 data-key="howToSellTitle"><i class="fas fa-shopping-cart"></i> </h3>
+                <h3 data-key="howToSellTitle"><i class="fas fa-shopping-cart"></i></h3>
                 <p data-key="howToSellText"></p>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/placeholder_sell_video_id" title="How to Sell Tutorial" frameborder="0" allowfullscreen></iframe>
-                </div>
+                <div class="video-container"><iframe src="https://www.youtube.com/embed/placeholder_sell_video_id" title="How to Sell Tutorial" frameborder="0" allowfullscreen></iframe></div>
             </div>
             <div class="info-item">
                 <h3 data-key="tutorialUpiTitle"></h3>
                 <p data-key="tutorialUpiText"></p>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/placeholder_upi_video_id" title="UPI Tutorial" frameborder="0" allowfullscreen></iframe>
-                </div>
+                <div class="video-container"><iframe src="https://www.youtube.com/embed/placeholder_upi_video_id" title="UPI Tutorial" frameborder="0" allowfullscreen></iframe></div>
             </div>
         </div>
     </div>
     
-    <!-- MODIFIED: Education Tab -->
     <div id="tab-education" class="modal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
@@ -320,9 +347,7 @@
              <div class="info-item">
                 <h3 data-key="centralGovtSchol"></h3>
                 <div class="portal-list">
-                    <ul>
-                        <li><a href="https://scholarships.gov.in/" target="_blank" data-key="nsp"></a><p data-key="nspDesc"></p></li>
-                    </ul>
+                    <ul><li><a href="https://scholarships.gov.in/" target="_blank" data-key="nsp"></a><p data-key="nspDesc"></p></li></ul>
                 </div>
             </div>
              <div class="info-item">
@@ -338,15 +363,14 @@
                 <h3 data-key="ngoSchol"></h3>
                  <div class="portal-list">
                     <ul>
-                        <li><a href="#" target="_blank" data-key="ngo1"></a><p data-key="ngo1Desc"></p></li>
-                        <li><a href="#" target="_blank" data-key="ngo2"></a><p data-key="ngo2Desc"></p></li>
+                        <li><a href="https://kiss.ac.in/" target="_blank" data-key="ngo1"></a><p data-key="ngo1Desc"></p></li>
+                        <li><a href="https://www.adhikar.org.in/" target="_blank" data-key="ngo2"></a><p data-key="ngo2Desc"></p></li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- NEW: Government Portals Modal -->
     <div id="tab-govt-portals" class="modal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
@@ -365,35 +389,13 @@
         </div>
     </div>
 
-    <!-- NEW: Welcome/Tutorial Popup -->
-    <div id="welcome-popup" class="modal">
-        <div class="modal-content" style="max-width: 500px; text-align: center;">
-            <h2 data-key="welcomeTitle"></h2>
-            <p data-key="welcomeText"></p>
-            <button id="watch-tutorial-btn" class="btn btn-primary"><i class="fas fa-play"></i> <span data-key="watchTutorialBtn"></span></button>
-            <button id="close-welcome-btn" class="btn" style="background: #aaa;"><span data-key="noThanksBtn"></span></button>
-        </div>
-    </div>
-    <div id="tutorial-video-popup" class="modal">
-        <div class="modal-content">
-             <span class="close-btn">&times;</span>
-             <h3 data-key="siteTutorialTitle"></h3>
-             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/placeholder_website_tutorial_id" title="Website Tutorial" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
-
-    <!-- NEW: Artisan ID Popup -->
-    <div id="artisan-id-popup" class="modal">
-        <div class="modal-content" style="max-width: 600px; text-align: center;">
-             <span class="close-btn">&times;</span>
-            <h2 data-key="artisanIdPopupTitle"></h2>
-            <p data-key="artisanIdPopupText"></p>
-            <a href="https://texmin.nic.in/weavers-pehchan-card-scheme" target="_blank" class="btn btn-primary"><i class="fas fa-external-link-alt"></i> <span data-key="registerNowBtn"></span></a>
-        </div>
-    </div>
+    <div id="welcome-popup" class="modal"><div class="modal-content" style="max-width: 500px; text-align: center;"><h2 data-key="welcomeTitle"></h2><p data-key="welcomeText"></p><button id="watch-tutorial-btn" class="btn btn-primary"><i class="fas fa-play"></i> <span data-key="watchTutorialBtn"></span></button><button id="close-welcome-btn" class="btn" style="background: #aaa;"><span data-key="noThanksBtn"></span></button></div></div>
+    <div id="tutorial-video-popup" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h3 data-key="siteTutorialTitle"></h3><div class="video-container"><iframe src="https://www.youtube.com/embed/placeholder_website_tutorial_id" title="Website Tutorial" frameborder="0" allowfullscreen></iframe></div></div></div>
+    <div id="artisan-id-popup" class="modal"><div class="modal-content" style="max-width: 600px; text-align: center;"><span class="close-btn">&times;</span><h2 data-key="artisanIdPopupTitle"></h2><p data-key="artisanIdPopupText"></p><a href="https://texmin.nic.in/weavers-pehchan-card-scheme" target="_blank" class="btn btn-primary"><i class="fas fa-external-link-alt"></i> <span data-key="registerNowBtn"></span></a></div></div>
     
+    <div class="floating-support-hub"><div class="floating-btn" id="main-support-btn"><i class="fas fa-headset"></i></div></div>
+    <div id="chatbot-container"><div id="chatbot-header"><span data-key="chatHeader"></span><span id="close-chatbot-btn">&times;</span></div><div id="chatbot-messages"></div><div id="chatbot-faq-options"></div></div>
+
     <script>
     // --- BILINGUAL & DYNAMIC CONTENT SCRIPT ---
     const languageData = {
@@ -429,7 +431,13 @@
             portalHRMS: "HRMS Odisha", portalHRMSDesc: "Human Resource Management System for government employees.",
             welcomeTitle: "Welcome to Karigar's Hub!", welcomeText: "Are you a new user? We have a short video to show you how to use the website.", watchTutorialBtn: "Watch Tutorial", noThanksBtn: "No, thanks",
             siteTutorialTitle: "How to use Karigar's Hub",
-            artisanIdPopupTitle: "Artisan ID Card Required", artisanIdPopupText: "To find the best schemes, an Artisan ID (Pehchan Card) is very helpful. If you don't have one, you can register for it on the official government portal.", registerNowBtn: "Register for Pehchan Card"
+            artisanIdPopupTitle: "Artisan ID Card Required", artisanIdPopupText: "To find the best schemes, an Artisan ID (Pehchan Card) is very helpful. If you don't have one, you can register for it on the official government portal.", registerNowBtn: "Register for Pehchan Card",
+            chatHeader: "Support Hub", chatWelcome: "Hello! How can I help you today? Please select an option.", chatFaq1: "How to get a loan?", chatFaq2: "How to sell my products?", chatFaq3: "How to find scholarships?", chatFaq4: "Need direct help?",
+            chatAns1: "You can apply for a loan through the MUDRA scheme. Use our 'AI Scheme Finder' for details.",
+            chatAns2: "Register on our portal by clicking 'Join Us'. Watch the 'How to Sell' video in the Learn section.",
+            chatAns3: "Visit the 'For Children' section. We have links to the National and State Scholarship Portals.",
+            chatAns4: "For direct help, you can call us or send a message on WhatsApp.",
+            chatContactCall: "Call Us", chatContactWhatsapp: "WhatsApp"
         },
         or: {
             pageTitle: "କାରିଗର ହବ୍", headerTitle: "କାରିଗର ହବ୍", headerSubtitle: "ତାରାବୋଇର ବୁଣାକାରମାନଙ୍କୁ ସଶକ୍ତ କରିବା ପାଇଁ ଏକକ ପୋର୍ଟାଲ୍",
@@ -463,7 +471,13 @@
             portalHRMS: "ଏଚ୍ଆର୍ଏମ୍ଏସ୍ ଓଡିଶା", portalHRMSDesc: "ସରକାରୀ କର୍ମଚାରୀଙ୍କ ପାଇଁ ମାନବ ସମ୍ବଳ ପରିଚାଳନା ପ୍ରଣାଳୀ।",
             welcomeTitle: "କାରିଗର ହବ୍‌କୁ ସ୍ୱାଗତ!", welcomeText: "ଆପଣ ଜଣେ ନୂଆ ବ୍ୟବହାରକାରୀ କି? ୱେବସାଇଟ୍ କିପରି ବ୍ୟବହାର କରିବେ ତାହା ଦେଖାଇବା ପାଇଁ ଆମ ପାଖରେ ଏକ ଛୋଟ ଭିଡିଓ ଅଛି।", watchTutorialBtn: "ଟ୍ୟୁଟୋରିଆଲ୍ ଦେଖନ୍ତୁ", noThanksBtn: "ନା, ଧନ୍ୟବାଦ",
             siteTutorialTitle: "କାରିଗର ହବ୍ କିପରି ବ୍ୟବହାର କରିବେ",
-            artisanIdPopupTitle: "କାରିଗର ପରିଚୟ ପତ୍ର ଆବଶ୍ୟକ", artisanIdPopupText: "ସର୍ବୋତ୍ତମ ଯୋଜନା ଖୋଜିବା ପାଇଁ, ଏକ କାରିଗର ପରିଚୟ ପତ୍ର (ପେହଚାନ୍ କାର୍ଡ) ବହୁତ ସାହାଯ୍ୟକାରୀ। ଯଦି ଆପଣଙ୍କ ପାଖରେ ନାହିଁ, ଆପଣ ସରକାରୀ ପୋର୍ଟାଲରେ ଏଥିପାଇଁ ପଞ୍ଜୀକରଣ କରିପାରିବେ।", registerNowBtn: "ପେହଚାନ୍ କାର୍ଡ ପାଇଁ ପଞ୍ଜୀକରଣ କରନ୍ତୁ"
+            artisanIdPopupTitle: "କାରିଗର ପରିଚୟ ପତ୍ର ଆବଶ୍ୟକ", artisanIdPopupText: "ସର୍ବୋତ୍ତମ ଯୋଜନା ଖୋଜିବା ପାଇଁ, ଏକ କାରିଗର ପରିଚୟ ପତ୍ର (ପେହଚାନ୍ କାର୍ଡ) ବହୁତ ସାହାଯ୍ୟକାରୀ। ଯଦି ଆପଣଙ୍କ ପାଖରେ ନାହିଁ, ଆପଣ ସରକାରୀ ପୋର୍ଟାଲରେ ଏଥିପାଇଁ ପଞ୍ଜୀକରଣ କରିପାରିବେ।", registerNowBtn: "ପେହଚାନ୍ କାର୍ଡ ପାଇଁ ପଞ୍ଜୀକରଣ କରନ୍ତୁ",
+            chatHeader: "ସହାୟତା କେନ୍ଦ୍ର", chatWelcome: "ନମସ୍କାର! ମୁଁ କିପରି ସାହାଯ୍ୟ କରିପାରେ? ଦୟାକରି ଏକ ବିକଳ୍ପ ବାଛନ୍ତୁ।", chatFaq1: "ଋଣ କିପରି ପାଇବି?", chatFaq2: "ଉତ୍ପାଦ କିପରି ବିକ୍ରି କରିବି?", chatFaq3: "ଛାତ୍ରବୃତ୍ତି କିପରି ପାଇବି?", chatFaq4: "ସିଧାସଳଖ ସାହାଯ୍ୟ ଦରକାର କି?",
+            chatAns1: "ଆପଣ ମୁଦ୍ରା ଯୋଜନା ମାଧ୍ୟମରେ ଋଣ ପାଇଁ ଆବେଦନ କରିପାରିବେ। 'AI ସ୍କିମ୍ ଫାଇଣ୍ଡର୍' ବ୍ୟବହାର କରନ୍ତୁ।",
+            chatAns2: "'ଯୋଗ ଦିଅନ୍ତୁ' ଉପରେ କ୍ଲିକ୍ କରି ପଞ୍ଜୀକରଣ କରନ୍ତୁ। 'ଶିଖନ୍ତୁ' ବିଭାଗରେ 'କିପରି ବିକ୍ରି କରିବେ' ଭିଡିଓ ଦେଖନ୍ତୁ।",
+            chatAns3: "'ପିଲାଙ୍କ ପାଇଁ' ବିଭାଗକୁ ଯାଆନ୍ତୁ। ସେଠାରେ ଜାତୀୟ ଏବଂ ରାଜ୍ୟ ଛାତ୍ରବୃତ୍ତି ପୋର୍ଟାଲର ଲିଙ୍କ୍ ଅଛି।",
+            chatAns4: "ସିଧାସଳଖ ସାହାଯ୍ୟ ପାଇଁ, ଆପଣ ଆମକୁ କଲ୍ କରିପାରିବେ କିମ୍ବା ହ୍ଵାଟ୍ସଆପ୍‌ରେ ମେସେଜ୍ ପଠାଇପାରିବେ।",
+            chatContactCall: "କଲ୍ କରନ୍ତୁ", chatContactWhatsapp: "ହ୍ଵାଟ୍ସଆପ୍"
         }
     };
 
@@ -478,12 +492,13 @@
             if (!textData) return;
             
             const icon = el.querySelector('i');
+            const span = el.querySelector('span');
+            
             if (el.tagName === 'INPUT') {
                 if (el.type === 'submit' || el.type === 'button') el.value = textData;
                 else el.placeholder = textData;
-            } else if (el.tagName === 'SPAN' || el.tagName === 'A' || el.tagName === 'BUTTON') {
-                if (icon) el.innerHTML = icon.outerHTML + ' ' + textData;
-                else el.textContent = textData;
+            } else if (span) {
+                span.textContent = textData;
             } else {
                 if (icon) el.innerHTML = icon.outerHTML + ' ' + textData;
                 else el.innerHTML = textData;
@@ -499,14 +514,13 @@
             updateLanguage(this.checked ? 'or' : 'en');
         });
 
-        // --- MODAL CONTROLS ---
         const allModals = document.querySelectorAll('.modal');
         function openModal(modalId) {
             const modal = document.getElementById(modalId);
             if(modal) modal.style.display = 'block';
         }
         function closeModal(modal) {
-            modal.style.display = 'none';
+            if(modal) modal.style.display = 'none';
         }
         document.querySelectorAll('.btn[data-target]').forEach(button => {
             button.addEventListener('click', e => openModal(e.currentTarget.dataset.target));
@@ -520,7 +534,6 @@
             }
         });
 
-        // --- WELCOME POPUP LOGIC ---
         if (!sessionStorage.getItem('welcomePopupShown')) {
             setTimeout(() => openModal('welcome-popup'), 1500);
             sessionStorage.setItem('welcomePopupShown', 'true');
@@ -533,7 +546,6 @@
             closeModal(document.getElementById('welcome-popup'));
         });
 
-        // --- ARTISAN ID SCHEME FINDER LOGIC ---
         const hasIdYes = document.getElementById('hasArtisanIdYes');
         const hasIdNo = document.getElementById('hasArtisanIdNo');
         const idInputContainer = document.getElementById('artisanIdInputContainer');
@@ -547,6 +559,62 @@
                 openModal('artisan-id-popup');
             }
         });
+
+        // --- CHATBOT BILINGUAL LOGIC ---
+        const mainSupportBtn = document.getElementById('main-support-btn');
+        const chatbotContainer = document.getElementById('chatbot-container');
+        const closeChatbotBtn = document.getElementById('close-chatbot-btn');
+        const chatbotMessages = document.getElementById('chatbot-messages');
+        const faqOptionsContainer = document.getElementById('chatbot-faq-options');
+
+        function addMessage(text, type) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = type === 'bot' ? 'bot-message' : 'user-message';
+            messageDiv.innerHTML = text; // Use innerHTML to render links
+            chatbotMessages.appendChild(messageDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        function showFaqOptions() {
+            faqOptionsContainer.innerHTML = '';
+            const faqs = ['chatFaq1', 'chatFaq2', 'chatFaq3', 'chatFaq4'];
+            faqs.forEach(faqKey => {
+                const faqBtn = document.createElement('button');
+                faqBtn.className = 'faq-btn';
+                faqBtn.textContent = languageData[currentLanguage][faqKey];
+                faqBtn.onclick = () => {
+                    addMessage(languageData[currentLanguage][faqKey], 'user');
+                    setTimeout(() => {
+                        let answer = languageData[currentLanguage][faqKey.replace('Faq', 'Ans')];
+                        if (faqKey === 'chatFaq4') {
+                            answer += <br><br><a href="tel:+91XXXXXXXXXX" class="btn" style="margin-right: 5px;">${languageData[currentLanguage].chatContactCall}</a> <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="btn">${languageData[currentLanguage].chatContactWhatsapp}</a>;
+                        }
+                        addMessage(answer, 'bot');
+                    }, 500);
+                };
+                faqOptionsContainer.appendChild(faqBtn);
+            });
+        }
+
+        mainSupportBtn.addEventListener('click', () => {
+            chatbotContainer.style.display = 'flex';
+            chatbotMessages.innerHTML = '';
+            addMessage(languageData[currentLanguage].chatWelcome, 'bot');
+            showFaqOptions();
+        });
+
+        closeChatbotBtn.addEventListener('click', () => {
+            chatbotContainer.style.display = 'none';
+        });
+        
+        langToggle.addEventListener('change', () => {
+            if (chatbotContainer.style.display === 'flex') {
+                chatbotMessages.innerHTML = '';
+                addMessage(languageData[currentLanguage].chatWelcome, 'bot');
+                showFaqOptions();
+            }
+        });
+
     });
     </script>
 </body>
