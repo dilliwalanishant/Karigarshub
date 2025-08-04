@@ -2,6 +2,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <meta name="theme-color" content="#1D1C3B"/>
+    <link rel="manifest" href="manifest.json">
+    
     <title>KARIGAR's HUB</title>
     <style>
         body {
@@ -27,12 +31,19 @@
         .header-text {
             flex-grow: 1;
         }
-        h1 {
-            margin: 0;
+        .voice-nav-icon { /* Style for the new microphone icon */
+            font-size: 2em;
+            cursor: pointer;
+            margin-left: 20px;
+            padding: 5px;
+            border-radius: 50%;
+            transition: background-color 0.3s;
         }
-        p {
-            margin-top: 5px;
+        .voice-nav-icon:hover {
+            background-color: #4DB6AC;
         }
+        h1 { margin: 0; }
+        p { margin-top: 5px; }
         nav {
             background-color: #4DB6AC;
             padding: 1em;
@@ -52,9 +63,7 @@
             font-weight: bold;
             transition: background-color 0.3s;
         }
-        nav a:hover {
-            background-color: #FFFFFF;
-        }
+        nav a:hover { background-color: #FFFFFF; }
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -86,6 +95,9 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+        }
+        .feature h3 {
+             margin-top:0;
         }
         .btn {
             display: inline-block;
@@ -144,50 +156,20 @@
             cursor: pointer;
         }
         .close-btn:hover,
-        .close-btn:focus {
-            color: #FFFFFF;
+        .close-btn:focus { color: #FFFFFF; }
+        .video-container {
+            position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; margin: 1em 0;
         }
-        .video-container { /* For embedding tutorial videos */
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            height: 0;
-            overflow: hidden;
-            max-width: 100%;
-            background: #000;
-            margin: 1em 0;
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .scheme-item, .event-item, .power-feature-item {
+           border-bottom: 2px solid #87CED9; padding: 1em 0; margin-bottom: 1em;
         }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        .scheme-item, .event-item { /* For styling lists of schemes/events */
-           border-bottom: 2px solid #87CED9;
-           padding: 1em 0;
-           margin-bottom: 1em;
-        }
-        .scheme-item:last-child, .event-item:last-child {
-            border-bottom: none;
-        }
-
+        .scheme-item:last-child, .event-item:last-child, .power-feature-item:last-child { border-bottom: none; }
+        
         @media screen and (max-width: 768px) {
-            .feature-section {
-                flex-direction: column;
-                align-items: center;
-            }
-            header {
-                flex-direction: column;
-                text-align: center;
-            }
-            .logo {
-                margin: 0 auto 10px auto;
-            }
-            nav a {
-                display: block;
-                margin: 0.5em auto;
-            }
+            .feature-section, header { flex-direction: column; align-items: center; text-align: center; }
+            .logo { margin: 0 auto 10px auto; }
+            nav a { display: block; margin: 0.5em auto; }
         }
     </style>
 </head>
@@ -199,212 +181,112 @@
             <h1>KARIGAR's HUB {କାରିଗର ହବ୍}</h1>
             <p>A Single Portal to Empower Weavers of Taraboi {ତାରାବୋଇର ବୁଣାକାରମାନଙ୍କୁ ସଶକ୍ତ କରିବା ପାଇଁ ଏକକ ପୋର୍ଟାଲ୍}</p>
         </div>
+        <div class="voice-nav-icon" onclick="startVoiceNavigation()" title="Start Voice Navigation">🎤</div>
     </header>
 
     <nav>
-        <a href="#about">About Us {ଆମ ବିଷୟରେ}</a>
-        <a href="#learn">Learn & Grow {ଶିଖନ୍ତୁ ଓ ଆଗକୁ ବଢନ୍ତୁ}</a>
-        <a href="#schemes">Schemes & Support {ଯୋଜନା ଓ ସହାୟତା}</a>
-        <a href="#events">Events & Fairs {ମେଳା ଓ ଇଭେଣ୍ଟ}</a>
-        <a href="#sell">Sell Your Craft {ନିଜ କଳା ବିକ୍ରି କରନ୍ତୁ}</a>
-        <a href="#register">Join Us {ଆମ ସହ ଯୋଗ ଦିଅନ୍ତୁ}</a>
+        <a href="#power-features">Power Features {ମୁଖ୍ୟ ସୁବିଧା}</a>
+        <a href="#learn">Learn & Grow {ଶିଖନ୍ତୁ ଓ ବଢନ୍ତୁ}</a>
+        <a href="#schemes">Schemes {ଯୋଜନା}</a>
+        <a href="#sell">Sell Your Craft {ବିକ୍ରି କରନ୍ତୁ}</a>
+        <a href="#register">Join Us {ଯୋଗ ଦିଅନ୍ତୁ}</a>
     </nav>
 
     <div class="container">
         
-        <section id="about" class="feature-section">
-            <div class="feature" style="flex: 1 1 100%; text-align:center;">
-                <h2>Our Mission {ଆମର ଲକ୍ଷ୍ୟ}</h2>
-                <p>To provide the weavers of Taraboi with the digital tools, knowledge, and platform needed to grow their craft, improve their livelihood, and stand on their own feet. We aim to connect tradition with technology.</p>
-                <p>{ତାରାବୋଇର ବୁଣାକାରମାନଙ୍କୁ ଡିଜିଟାଲ୍ ଉପକରଣ, ଜ୍ଞାନ ଏବଂ ପ୍ଲାଟଫର୍ମ ପ୍ରଦାନ କରିବା ଯାହା ସେମାନଙ୍କର କଳାକୁ ବଢ଼ାଇବା, ଜୀବିକା ଉନ୍ନତ କରିବା ଏବଂ ନିଜ ଗୋଡ଼ରେ ଛିଡ଼ା ହେବା ପାଇଁ ଆବଶ୍ୟକ। ଆମର ଲକ୍ଷ୍ୟ ହେଉଛି ପରମ୍ପରାକୁ ପ୍ରଯୁକ୍ତିବିଦ୍ୟା ସହିତ ଯୋଡ଼ିବା।}</p>
-                <img src="images/KH pic 1.jpg" style="width: 80%; max-width: 500px; border-radius: 10px; margin: 1em auto;">
+        <section id="power-features" class="feature-section">
+            <h2 class="section-title">Power Features {ମୁଖ୍ୟ ସୁବିଧା}</h2>
+            <div class="feature">
+                <h3>Offline Mode & Voice Control {ଅଫଲାଇନ୍ ମୋଡ୍ ଓ ଭଏସ୍ କଣ୍ଟ୍ରୋଲ୍}</h3>
+                <p>Use the portal even with bad internet. Navigate hands-free using your voice in Odia.</p>
+                <p>{ଖରାପ ଇଣ୍ଟରନେଟରେ ମଧ୍ୟ ପୋର୍ଟାଲ୍ ବ୍ୟବହାର କରନ୍ତୁ। ଓଡ଼ିଆରେ ନିଜ ସ୍ୱରରେ ହାତମୁକ୍ତ ଭାବେ ନାଭିଗେଟ୍ କରନ୍ତୁ।}</p>
+                <a class="btn" data-target="tab-accessibility">Learn How {କିପରି ଜାଣନ୍ତୁ}</a>
+            </div>
+            <div class="feature">
+                <h3>My Personal Store & UPI Payments {ମୋର ଦୋକାନ ଓ UPI ପେମେଣ୍ଟ}</h3>
+                <p>Get your own e-commerce page. Create UPI QR codes instantly for cashless sales.</p>
+                <p>{ନିଜର ଇ-କମର୍ସ ପେଜ୍ ପାଆନ୍ତୁ। କ୍ୟାସଲେସ୍ ବିକ୍ରି ପାଇଁ ତୁରନ୍ତ UPI QR କୋଡ୍ ତିଆରି କରନ୍ତୁ।}</p>
+                <a class="btn" data-target="tab-mystore">Setup My Store {ମୋ ଦୋକାନ ସେଟ୍ କରନ୍ତୁ}</a>
+            </div>
+             <div class="feature">
+                <h3>AI Scheme Advisor {AI ଯୋଜନା ପରାମର୍ଶଦାତା}</h3>
+                <p>Answer simple questions and get a personalized checklist of schemes and loans you are eligible for.</p>
+                <p>{ସରଳ ପ୍ରଶ୍ନର ଉତ୍ତର ଦିଅନ୍ତୁ ଏବଂ ଆପଣ ଯୋଗ୍ୟ ଥିବା ଯୋଜନା ଓ ଋଣର ଏକ ବ୍ୟକ୍ତିଗତ ତାଲିକା ପାଆନ୍ତୁ।}</p>
+                <a class="btn" data-target="tab-ai-advisor">Find My Schemes {ମୋ ଯୋଜନା ଖୋଜନ୍ତୁ}</a>
+            </div>
+             <div class="feature">
+                <h3>WhatsApp & Phone Support {WhatsApp ଓ ଫୋନ୍ ସହାୟତା}</h3>
+                <p>Get instant answers and alerts on WhatsApp. Talk to our automated phone support anytime.</p>
+                <p>{WhatsApp ରେ ତୁରନ୍ତ ଉତ୍ତର ଓ ଆଲର୍ଟ ପାଆନ୍ତୁ। ଆମର ସ୍ୱୟଂଚାଳିତ ଫୋନ୍ ସହାୟତା ସହ କେବେବି କଥା ହୁଅନ୍ତୁ।}</p>
+                <a class="btn" data-target="tab-bots">Connect Now {ଏବେ ସଂଯୋଗ କରନ୍ତୁ}</a>
             </div>
         </section>
 
-        <section id="learn" class="feature-section">
-            <h2 class="section-title">Learn & Grow {ଶିଖନ୍ତୁ ଓ ଆଗକୁ ବଢନ୍ତୁ}</h2>
-            <div class="feature">
-                <h3>Tutorial Videos {ଟ୍ୟୁଟୋରିଆଲ୍ ଭିଡିଓ}</h3>
-                <p>Step-by-step video guides in Odia to help you with everything you need.</p>
-                <p>{ଆପଣଙ୍କୁ ଆବଶ୍ୟକ କରୁଥିବା ସମସ୍ତ ବିଷୟରେ ସାହାଯ୍ୟ କରିବା ପାଇଁ ଓଡ଼ିଆରେ ପର୍ଯ୍ୟାୟକ୍ରମେ ଭିଡିଓ ଗାଇଡ୍।}</p>
-                <a class="btn" data-target="tab-tutorials">Watch Videos {ଭିଡିଓ ଦେଖନ୍ତୁ}</a>
-            </div>
-            <div class="feature">
-                <h3>Build Your Career {ନିଜ କ୍ୟାରିୟର ଗଢନ୍ତୁ}</h3>
-                <p>Learn how to create new designs, manage your money, and build your own brand.</p>
-                <p>{ନୂଆ ଡିଜାଇନ୍ କିପରି ତିଆରି କରିବେ, ଟଙ୍କା ପରିଚାଳନା କରିବେ ଏବଂ ନିଜର ବ୍ରାଣ୍ଡ୍ କିପରି ତିଆରି କରିବେ ଶିଖନ୍ତୁ।}</p>
-                <a class="btn" data-target="tab-career">Learn More {ଅଧିକ ଜାଣନ୍ତୁ}</a>
-            </div>
-        </section>
-
-        <section id="schemes" class="feature-section">
-            <h2 class="section-title">Schemes & Support {ଯୋଜନା ଓ ସହାୟତା}</h2>
-            <div class="feature">
-                <h3>Government Schemes {ସରକାରୀ ଯୋଜନା}</h3>
-                <p>All Central and State Government schemes available for handloom artisans in Odisha.</p>
-                <p>{ଓଡ଼ିଶାର ହସ୍ତତନ୍ତ କାରିଗରମାନଙ୍କ ପାଇଁ ଉପଲବ୍ଧ ସମସ୍ତ କେନ୍ଦ୍ର ଓ ରାଜ୍ୟ ସରକାରୀ ଯୋଜନା।}</p>
-                <a class="btn" data-target="tab-schemes">Explore Schemes {ଯୋଜନା ଦେଖନ୍ତୁ}</a>
-            </div>
-            <div class="feature">
-                <h3>Bank Loans & Investments {ବ୍ୟାଙ୍କ ଋଣ ଓ ନିବେଶ}</h3>
-                <p>Information on low-interest loans from banks and how to apply.</p>
-                <p>{ବ୍ୟାଙ୍କରୁ କମ୍ ସୁଧରେ ଋଣ ଏବଂ କିପରି ଆବେଦନ କରିବେ ସେ ବିଷୟରେ ସୂଚନା।}</p>
-                <a class="btn" data-target="tab-loans">Find Loans {ଋଣ ଖୋଜନ୍ତୁ}</a>
-            </div>
-        </section>
-        
-        <section id="events" class="feature-section">
-            <h2 class="section-title">Events & Fairs {ମେଳା ଓ ଇଭେଣ୍ଟ}</h2>
-            <div class="feature" style="flex: 1 1 100%;">
-                <h3>Exhibitions & Melas {ପ୍ରଦର୍ଶନୀ ଓ ମେଳା}</h3>
-                <p>Find out about upcoming handloom events and craft fairs in Odisha and across India.</p>
-                <p>{ଓଡ଼ିଶା ଏବଂ ସାରା ଭାରତରେ ହେବାକୁ ଥିବା ହସ୍ତତନ୍ତ ଇଭେଣ୍ଟ ଏବଂ ହସ୍ତଶିଳ୍ପ ମେଳା ବିଷୟରେ ଜାଣନ୍ତୁ।}</p>
-                <a class="btn" data-target="tab-events">View Event List {ଇଭେଣ୍ଟ ତାଲିକା ଦେଖନ୍ତୁ}</a>
-            </div>
-        </section>
-
-        <section id="sell" class="feature-section">
-            <h2 class="section-title">Sell Your Craft {ନିଜ କଳା ବିକ୍ରି କରନ୍ତୁ}</h2>
-            <div class="feature" style="flex: 1 1 100%;">
-                <h3>Showcase Your Products {ଆପଣଙ୍କ ଉତ୍ପାଦ ପ୍ରଦର୍ଶନ କରନ୍ତୁ}</h3>
-                <p>Register with us to create your own page on Karigar Hub and sell your products directly to customers.</p>
-                <p>{ଆମ ସହିତ ପଞ୍ଜୀକରଣ କରନ୍ତୁ ଏବଂ କାରିଗର ହବ୍‌ରେ ନିଜର ପେଜ୍ ତିଆରି କରି ଗ୍ରାହକମାନଙ୍କୁ ସିଧାସଳଖ ଆପଣଙ୍କ ଉତ୍ପାଦ ବିକ୍ରି କରନ୍ତୁ।}</p>
-                 <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 1em;">
-                    <img src="images/KH pic 2.jpg" style="width: 200px; height:200px; object-fit:cover; border-radius: 10px;">
-                    <img src="images/KH pic 3.jpg" style="width: 200px; height:200px; object-fit:cover; border-radius: 10px;">
-                    <img src="images/KH pic 4.jpg" style="width: 200px; height:200px; object-fit:cover; border-radius: 10px;">
+        <div id="tab-accessibility" class="content-tab">
+            <div class="tab-inner-content">
+                <span class="close-btn">×</span>
+                <h2>Accessibility Features {ବ୍ୟବହାର ସୁବିଧା}</h2>
+                <div class="power-feature-item">
+                    <h3>Full Odia Voice Navigation (TTS/STT) {ସମ୍ପୂର୍ଣ୍ଣ ଓଡ଼ିଆ ଭଏସ୍ ନାଭିଗେସନ୍}</h3>
+                    <p><strong>Benefit:</strong> Low-literacy artisans can navigate the entire website hands-free just by speaking commands in Odia. The website will also speak back to you.</p>
+                    <p><strong>Technology:</strong> This uses open-source Text-to-Speech (TTS) and Speech-to-Text (STT) engines integrated into the browser via the Web Speech API.</p>
+                </div>
+                <div class="power-feature-item">
+                    <h3>Progressive Web App (PWA) & Offline Caching {ପ୍ରୋଗ୍ରେସିଭ୍ ୱେବ୍ ଆପ୍ ଓ ଅଫଲାଇନ୍ କ୍ୟାଚିଂ}</h3>
+                    <p><strong>Benefit:</strong> The portal works even with patchy or no internet connection. You can browse information, and any forms you fill will sync automatically when the signal returns.</p>
+                    <p><strong>Technology:</strong> This is achieved by making the site a PWA. A 'Service Worker' script runs in the background to save important pages and data on your device for offline use.</p>
                 </div>
             </div>
-        </section>
+        </div>
         
-        <section id="register" class="feature-section">
-            <h2 class="section-title">Join Karigar Hub Today! {ଆଜି ହିଁ କାରିଗର ହବ୍‌ରେ ଯୋଗ ଦିଅନ୍ତୁ!}</h2>
-            <div class="feature" style="flex: 1 1 100%;">
-                <form style="text-align: left; max-width: 500px; margin: auto;">
-                    <label for="name">Full Name {ପୂରା ନାମ}:</label><br>
-                    <input type="text" id="name" name="name" required style="width: 100%; padding: 8px; margin: 6px 0;"><br>
-                    <label for="contact">Phone Number {ଫୋନ୍ ନମ୍ବର}:</label><br>
-                    <input type="tel" id="contact" name="contact" required style="width: 100%; padding: 8px; margin: 6px 0;"><br>
-                    <label for="location">Village/Address {ଗାଁ/ଠିକଣା}:</label><br>
-                    <input type="text" id="location" name="location" value="Taraboi" style="width: 100%; padding: 8px; margin: 6px 0;"><br>
-                    <label for="craft">Type of Weaving {ବୁଣାକାର୍ଯ୍ୟର ପ୍ରକାର}:</label><br>
-                    <input type="text" id="craft" name="craft" placeholder="e.g., Bomkai, Sambalpuri" style="width: 100%; padding: 8px; margin: 6px 0;"><br>
-                    <input type="submit" value="Register Now {ବର୍ତ୍ତମାନ ପଞ୍ଜୀକରଣ କରନ୍ତୁ}" style="margin-top: 10px; padding: 10px 20px; background-color: #87CED9; color: #1D1C3B; border: none; border-radius: 5px; width: 100%; font-size: 1.2em; cursor: pointer;">
-                </form>
+        <div id="tab-mystore" class="content-tab">
+            <div class="tab-inner-content">
+                <span class="close-btn">×</span>
+                <h2>My Personal Store & Payments {ମୋର ଦୋକାନ ଓ ପେମେଣ୍ଟ}</h2>
+                <div class="power-feature-item">
+                    <h3>E-commerce Micro-Storefronts {ଇ-କମର୍ସ ମାଇକ୍ରୋ-ଷ୍ଟୋରଫ୍ରଣ୍ଟ}</h3>
+                    <p><strong>Benefit:</strong> Each registered artisan gets a simple, personal webpage to showcase their products, story, and contact information for direct B2C sales.</p>
+                    <p><strong>Technology:</strong> This requires a back-end database to store artisan and product data. The website reads from this database to create a unique page for each artisan.</p>
+                </div>
+                <div class="power-feature-item">
+                    <h3>Digital Payment Gateway & UPI QR Generation {ଡିଜିଟାଲ୍ ପେମେଣ୍ଟ ଗେଟୱେ ଓ UPI QR ଜେନେରେସନ୍}</h3>
+                    <p><strong>Benefit:</strong> Faster, cash-less transactions at fairs or for online sales. Generate a unique UPI QR code for any amount instantly.</p>
+                    <p><strong>Technology:</strong> This involves integrating with a payment gateway service like Razorpay or PhonePe. Their APIs allow us to create dynamic QR codes and confirm payments automatically.</p>
+                    <img src="https://i.imgur.com/gA49n2c.png" alt="Sample UPI QR Code" style="max-width:200px; margin:1em auto; display:block;">
+                </div>
             </div>
-        </section>
+        </div>
 
-        <section id="map" class="feature-section">
-            <h2 class="section-title">Our Artisan Network in Taraboi {ତାରାବୋଇରେ ଆମର କାରିଗର ନେଟୱାର୍କ}</h2>
-            <div class="feature" style="flex: 1 1 100%;">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3748.807914481075!2d85.52928801486898!3d20.017180986556156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19001362e33671%3A0x67341b525f0a207!2sTaraboi%2C%20Odisha%20752020!5e0!3m2!1sen!2sin!4v1660000000000!5m2!1sen!2sin" height="400" style="border:0; width: 100%;" allowfullscreen="" loading="lazy"></iframe>
+        <div id="tab-ai-advisor" class="content-tab">
+            <div class="tab-inner-content">
+                <span class="close-btn">×</span>
+                <h2>AI Scheme Advisor {AI ଯୋଜନା ପରାମର୍ଶଦାତା}</h2>
+                <div class="power-feature-item">
+                    <h3>AI-Driven Scheme Recommender {AI-ଚାଳିତ ଯୋଜନା ରେକମେଣ୍ଡର୍}</h3>
+                    <p><strong>Benefit:</strong> No more confusion. The AI asks you simple questions (like your age, income, type of craft) and gives you a personalised checklist of government subsidies and bank loans you are most likely eligible for.</p>
+                    <p><strong>Technology:</strong> This uses a combination of a rules-based engine for simple logic and a Machine Learning (ML) model on the back-end. The ML model can learn over time which schemes are most successful for different types of artisans.</p>
+                </div>
             </div>
-        </section>
+        </div>
 
-    </div>
+        <div id="tab-bots" class="content-tab">
+            <div class="tab-inner-content">
+                <span class="close-btn">×</span>
+                <h2>WhatsApp & Phone Support {WhatsApp ଓ ଫୋନ୍ ସହାୟତା}</h2>
+                <div class="power-feature-item">
+                    <h3>WhatsApp & IVR Bots {WhatsApp ଓ IVR ବଟ୍}</h3>
+                    <p><strong>Benefit:</strong> Get instant answers, scheme alerts, and event notifications directly on your WhatsApp, a channel you are already familiar with. You can also call a number and interact with our automated IVR (Interactive Voice Response) system in Odia.</p>
+                    <p><strong>Technology:</strong> This requires integrating with WhatsApp's Business API and a cloud telephony service (like Twilio or Exotel) for the IVR bot. These bots are connected to our main database for information.</p>
+                </div>
+            </div>
+        </div>
+
+        </div>
 
     <footer>
         <p>© 2025 Karigar's Hub | Designed to Uplift the Weavers of Taraboi.</p>
         <p>{© 2025 କାରିଗର ହବ୍ | ତାରାବୋଇର ବୁଣାକାରମାନଙ୍କ ଉନ୍ନତି ପାଇଁ ପରିକଳ୍ପିତ।}</p>
     </footer>
-
-    <div id="tab-tutorials" class="content-tab">
-        <div class="tab-inner-content">
-            <span class="close-btn">&times;</span>
-            <h2>Tutorial Videos {ଟ୍ୟୁଟୋରିଆଲ୍ ଭିଡିଓ}</h2>
-            <p>Watch these videos in Odia to learn important skills.</p>
-            <div class="scheme-item">
-                <h3>How to Register for an Artisan Card {କାରିଗର କାର୍ଡ ପାଇଁ କିପରି ପଞ୍ଜୀକରଣ କରିବେ}</h3>
-                <p>This video shows you step-by-step how to fill the form on the government portal and what documents are needed.</p>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Artisan Card Tutorial" frameborder="0" allowfullscreen></iframe>
-                </div>
-            </div>
-            <div class="scheme-item">
-                <h3>How to Take Good Photos of Your Products {ଉତ୍ପାଦର ଭଲ ଫଟୋ କିପରି ଉଠାଇବେ}</h3>
-                <p>Learn how to use any mobile phone to take clear and beautiful photos of your sarees and fabrics to attract customers.</p>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Product Photography Tutorial" frameborder="0" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div id="tab-career" class="content-tab">
-        <div class="tab-inner-content">
-            <span class="close-btn">&times;</span>
-            <h2>Build Your Career {ନିଜ କ୍ୟାରିୟର ଗଢନ୍ତୁ}</h2>
-             <p>Resources to help you grow your skills and income.</p>
-            <div class="scheme-item">
-                <h3>New Design Ideas {ନୂଆ ଡିଜାଇନ୍ ਵਿਚਾਰ}</h3>
-                <p>Learn about new color combinations and patterns that are popular in the market. We will share new design books and ideas here every month.</p>
-            </div>
-            <div class="scheme-item">
-                <h3>Financial Literacy {ଆର୍ଥିକ ସାକ୍ଷରତା}</h3>
-                <p>Learn how to open a bank account, how to use digital payments like PhonePe or Google Pay, and why saving money is important. We will organize local workshops for this.</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="tab-schemes" class="content-tab">
-        <div class="tab-inner-content">
-            <span class="close-btn">&times;</span>
-            <h2>Government Schemes for Handloom Artisans {ହସ୍ତତନ୍ତ କାରିଗରଙ୍କ ପାଇଁ ସରକାରୀ ଯୋଜନା}</h2>
-            <div class="scheme-item">
-                <h3>National Handloom Development Programme (NHDP)</h3>
-                <p><strong>Benefit:</strong> Provides financial assistance for looms, accessories, design innovation, and skill upgradation.</p>
-                <p><strong>Who can apply:</strong> Weavers who have an Artisan Card.</p>
-                <a href="https://handlooms.nic.in/" target="_blank" class="btn">Official Portal</a>
-            </div>
-             <div class="scheme-item">
-                <h3>Pradhan Mantri Weavers MUDRA Scheme</h3>
-                <p><strong>Benefit:</strong> Provides loans at a very low interest rate (6%) for working capital needs.</p>
-                <p><strong>Who can apply:</strong> All handloom weavers.</p>
-                <a href="https://www.mudra.org.in/" target="_blank" class="btn">Learn More</a>
-            </div>
-             <div class="scheme-item">
-                <h3>"Baristha Bunakar Sahayata Yojana" (Odisha State Scheme)</h3>
-                <p><strong>Benefit:</strong> Monthly financial assistance for weavers above the age of 60.</p>
-                <p><strong>Who can apply:</strong> Senior weavers of Odisha.</p>
-                <a href="https://handloom.odisha.gov.in/schemes/" target="_blank" class="btn">State Portal</a>
-            </div>
-        </div>
-    </div>
-
-    <div id="tab-loans" class="content-tab">
-        <div class="tab-inner-content">
-            <span class="close-btn">&times;</span>
-            <h2>Bank Loans & Financial Support {ବ୍ୟାଙ୍କ ଋଣ ଓ ଆର୍ଥିକ ସହାୟତା}</h2>
-            <p>Many banks offer special loans for artisans under the MUDRA scheme. We can help you connect with the nearest bank branch and assist with the application process.</p>
-            <p><strong>Banks providing MUDRA loans:</strong></p>
-            <ul>
-                <li>State Bank of India (SBI)</li>
-                <li>Punjab National Bank (PNB)</li>
-                <li>Utkal Grameen Bank</li>
-                <li>Bandhan Bank</li>
-            </ul>
-            <p>We will soon upload a video tutorial explaining the full loan application process.</p>
-        </div>
-    </div>
-    
-    <div id="tab-events" class="content-tab">
-        <div class="tab-inner-content">
-            <span class="close-btn">&times;</span>
-            <h2>Upcoming Events & Fairs {ଆଗାମୀ ମେଳା ଓ ଇଭେଣ୍ଟ}</h2>
-            <div class="event-item">
-                <h3>Toshali National Crafts Mela, Bhubaneswar</h3>
-                <p><strong>When:</strong> Usually in December every year.</p>
-                <p><strong>What it is:</strong> One of the biggest craft fairs in Eastern India. A great opportunity to showcase and sell products.</p>
-                <p><strong>How to Enroll:</strong> We will provide updates and help with the application form when the dates are announced.</p>
-            </div>
-            <div class="event-item">
-                <h3>Dilli Haat, New Delhi - Odisha Handloom Stall</h3>
-                <p><strong>When:</strong> Stalls are rotated. Dates are announced by the Handloom department.</p>
-                <p><strong>What it is:</strong> A permanent exhibition space in Delhi. Getting a stall here means huge exposure.</p>
-                 <p><strong>How to Enroll:</strong> Applications are usually submitted through the State Handloom Directorate. We will notify you.</p>
-            </div>
-        </div>
-    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -413,15 +295,7 @@
 
             function openTab(tabId) {
                 const tab = document.getElementById(tabId);
-                if (tab) {
-                    tab.style.display = 'block';
-                }
-            }
-
-            function closeAllTabs() {
-                document.querySelectorAll('.content-tab').forEach(tab => {
-                    tab.style.display = 'none';
-                });
+                if (tab) { tab.style.display = 'block'; }
             }
 
             openButtons.forEach(button => {
@@ -444,6 +318,23 @@
                 }
             });
         });
+
+        // --- PLACEHOLDER FUNCTIONS FOR ADVANCED FEATURES ---
+
+        function startVoiceNavigation() {
+            // TODO: This would trigger the Web Speech API to start listening for Odia commands.
+            alert("Voice Navigation Activated! (This is a demo)");
+            console.log("Starting voice recognition...");
+        }
+
+        // PWA Installation Script (to be placed in a separate file, e.g., app.js)
+        /*
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+            .then((reg) => console.log('Service worker registered.', reg))
+            .catch((err) => console.log('Service worker not registered.', err));
+        }
+        */
     </script>
 
 </body>
