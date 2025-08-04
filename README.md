@@ -1,7 +1,3 @@
-
-
-html
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -305,7 +301,7 @@ html
     <div class="tab-inner-content">
       <span class="close-btn">&times;</span>
       <h2>More About Karigar's Hub</h2>
-      <p>This is where you can write detailed information about Karigar's Hub. Talk about your mission, vision, history, and the team behind this initiative.</p>
+      <p>Karigar's Hub is a platform dedicated to connecting, empowering, and celebrating traditional artisans across India. Here, timeless skills meet modern support, as we spotlight the stories, craftsmanship, and cultural heritage of our artisans. More than just a space—it's a growing community where traditions come alive, talents are recognized, and collaboration thrives. Whether it's through workshops, showcasing crafts, or offering support, Karigar's Hub is where artisans and admirers come together—hand in hand—to preserve and promote the soul of Indian artistry.</p>
     </div>
   </div>
 
