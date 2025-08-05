@@ -264,7 +264,6 @@
                 <div id="scheme-results" style="margin-top: 20px; padding: 15px; border-radius: 8px; background-color: #e8f5e9; display: none;"></div>
                 <hr style="margin: 1.5em 0;">
                 <a class="btn" data-target="tab-schemes"><i class="fas fa-list-ul"></i> <span data-key="viewAllGovtSchemes"></span></a>
-                <a href="[https://scholarships.gov.in/](https://nimi.gov.in/web/index.html)" target="_blank" class="btn"><i class="fas fa-external-link-alt"></i> <span data-key="goToNSP"></span></a>
                 <a class="btn" data-target="tab-loans" style="margin-left: 10px;"><i class="fas fa-university"></i> <span data-key="viewBankLoans"></span></a>
             </div>
         </section>
