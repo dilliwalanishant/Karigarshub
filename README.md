@@ -418,6 +418,23 @@
         <div id="chatbot-faq-options">
             </div>
     </div>
+    <div id="welcome-popup" class="modal">
+        <div class="modal-content" style="text-align: center;">
+            <h2 data-key="welcomeTitle"></h2>
+            <p data-key="welcomeText"></p>
+            <button id="watch-tutorial-btn" class="btn btn-primary"><i class="fas fa-play"></i> <span data-key="watchTutorialBtn"></span></button>
+            <button id="close-welcome-btn" class="btn" style="background: #aaa;"><span data-key="noThanksBtn"></span></button>
+        </div>
+    </div>
+    <div id="tutorial-video-popup" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">×</span>
+            <h3 data-key="siteTutorialTitle"></h3>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/placeholder_website_tutorial_id" title="Website Tutorial" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+
     
     <div id="voice-popup">
         <div id="voice-popup-content">
