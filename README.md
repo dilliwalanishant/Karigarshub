@@ -280,7 +280,7 @@
                 <i class="fas fa-qrcode icon"></i>
                 <h3 data-key="upiPaymentsTitle"></h3>
                 <p data-key="upiPaymentsText"></p>
-                <img src="https://i.ibb.co/9vGo2j3/qr-code-generic.png" alt="Sample QR Code" style="width: 150px; margin: 1em auto; border-radius: 8px;">
+                <img src="QR.jpg" alt="Sample QR Code" style="width: 150px; margin: 1em auto; border-radius: 8px;">
             </div>
         </section>
         
